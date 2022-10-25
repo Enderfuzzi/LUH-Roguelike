@@ -16,7 +16,8 @@ git add <name> # stages a file
 git commit -m "sample text" # commits with a message
 git merge <name> # merges local braches into master
 ```
-
+## General Information
+Test Project is used for experimental test of functions and seeing how features works. it is used due to a bad prject structure in folders.
 ## General Idea
 - Hack and Slay game in a arena
 ## Goals of the Game
