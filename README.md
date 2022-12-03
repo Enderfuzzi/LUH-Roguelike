@@ -47,7 +47,8 @@ Test Project is used for experimental test of functions and seeing how features 
 - Bennet Hueter
 - Ole Brenner
 ### Used Ressources
-- "Sample Text"
+- Enviroment: [Rogue Fantasy Castle](https://assetstore.unity.com/packages/2d/environments/rogue-fantasy-castle-164725) by Szadi Art.
+- Living creatures: [Roguelike Dungeon Asset Bundle](https://trevor-pupkin.itch.io/roguelike-dungeon-asset-bundle) by Pupkin
 ## Licence
 "Sample text"
 ## To do List
