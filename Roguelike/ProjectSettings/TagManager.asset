@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Enviroment
+  - Writing
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2195972665
+    locked: 0
+  - name: Foreground
+    uniqueID: 3061257257
+    locked: 0
+  - name: Decorative
+    uniqueID: 3891561389
+    locked: 0
+  - name: Writing
+    uniqueID: 2657240509
     locked: 0
