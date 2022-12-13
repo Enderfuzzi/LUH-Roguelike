@@ -12,8 +12,6 @@ Advanced:
 ```
 git branch <name> # creates a new branch
 git checkout <name> # changes work dir to that branch
-git add <name> # stages a file
-git commit -m "sample text" # commits with a message
 git merge <name> # merges local braches into master
 ```
 ## General Information
@@ -49,11 +47,14 @@ Test Project is used for experimental test of functions and seeing how features 
 ### Used Ressources
 - Enviroment: [Rogue Fantasy Castle](https://assetstore.unity.com/packages/2d/environments/rogue-fantasy-castle-164725) by Szadi Art.
 - Living creatures: [Roguelike Dungeon Asset Bundle](https://trevor-pupkin.itch.io/roguelike-dungeon-asset-bundle) by Pupkin
+- Font: [Bubble Font (Free Version)](https://assetstore.unity.com/packages/2d/fonts/bubble-font-free-version-24987) by Jazz Create Games
+- Character: [A load of Overworld 3/4 RPG Sprites](https://opengameart.org/content/a-load-of-overworld-34-rpg-sprites) by Redshrike (Stephen Challener) [^1] [^1]: Modified for usage
+- Character Attack: [Mage Attack](https://opengameart.org/content/mage-attack) modified version of Character Sprites by k-skills
 ## Licence
 "Sample text"
 ## To do List
 [Link for 2D Tutorial](https://www.youtube.com/playlist?list=PL0m-AJLtwLv7Fe6Wj32zJIHuHk5jBUDzO) 
-- [ ] implement Main menue scene
+- [ ] implement Main menu scene
 - [ ] implement Game scene
 - [ ] implement Credit scene
 - [ ] create arena for first level
