@@ -8,6 +8,8 @@ public class Character_Control : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     //public CharacterController control;
 
+    public Animator animator;
+
     private Vector3 velocity;
 
     //private bool touchRight = false;
@@ -37,10 +39,13 @@ public class Character_Control : MonoBehaviour
         control.Move(velocity * Time.deltaTime);
         */
 
-        float horizontalMovement = Input.GetAxis("Horizontal");
-        float verticalMovement = Input.GetAxis("Vertical");
-        rb.velocity = new Vector3(horizontalMovement, verticalMovement, 0) * speed;
+        float horizontalMovement = Input.GetAxis("Horizontal") * speed;
+        float verticalMovement = Input.GetAxis("Vertical") * speed;
 
+        animator.SetFloat("ySpeed", verticalMovement);
+        animator.SetFloat("xSpeed", horizontalMovement);
+
+        rb.velocity = new Vector3(horizontalMovement, verticalMovement, 0);
 
 
 

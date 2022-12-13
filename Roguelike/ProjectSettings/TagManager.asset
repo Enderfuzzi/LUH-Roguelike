@@ -50,6 +50,9 @@ TagManager:
   - name: Decorative
     uniqueID: 3891561389
     locked: 0
+  - name: Player
+    uniqueID: 2502423187
+    locked: 0
   - name: Writing
     uniqueID: 2657240509
     locked: 0
