@@ -56,3 +56,6 @@ TagManager:
   - name: Player
     uniqueID: 2591850469
     locked: 0
+  - name: Second_Foreground
+    uniqueID: 2619375279
+    locked: 0
