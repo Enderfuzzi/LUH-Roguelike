@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 6164739577278545334}
   - component: {fileID: 7957443440273256455}
   m_Layer: 6
-  m_Name: Tilemap
+  m_Name: Pillar_Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
