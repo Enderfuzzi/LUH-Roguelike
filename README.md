@@ -49,7 +49,8 @@ Test Project is used for experimental test of functions and seeing how features 
 - Living creatures: [Roguelike Dungeon Asset Bundle](https://trevor-pupkin.itch.io/roguelike-dungeon-asset-bundle) by Pupkin
 - Font: [Bubble Font (Free Version)](https://assetstore.unity.com/packages/2d/fonts/bubble-font-free-version-24987) by Jazz Create Games
 - Character: [A load of Overworld 3/4 RPG Sprites](https://opengameart.org/content/a-load-of-overworld-34-rpg-sprites) by Redshrike (Stephen Challener)[^1]
-- Character Attack: [Mage Attack](https://opengameart.org/content/mage-attack) modified version of Character Sprites by k-skills
+- Character Animation: [Mage Attack](https://opengameart.org/content/mage-attack) modified version of Character Sprites by k-skills
+- Spell Animations [Spell Animation Spritesheets](https://opengameart.org/content/spell-animation-spritesheets) by Viktor Hahn (Viktor.Hahn@web.de)
 [^1]: Modified for usage
 ## Licence
 "Sample text"

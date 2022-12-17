@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7979622804773837315}
   - component: {fileID: 7979622804773837313}
   - component: {fileID: 7979622804773837314}
+  - component: {fileID: 181947314803617811}
   m_Layer: 0
   m_Name: Lamp_B
   m_TagString: Untagged
@@ -105,3 +106,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &181947314803617811
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979622804773837324}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000015971332, y: -0.39772308}
+  m_Size: {x: 0.5202662, y: 0.3914824}
+  m_Direction: 1

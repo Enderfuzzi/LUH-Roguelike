@@ -13,9 +13,9 @@ TagManager:
   - UI
   - Enviroment
   - Writing
-  - 
-  - 
-  - 
+  - Projectiles
+  - Player
+  - Enemys
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Not_Visble
+    uniqueID: 3355583027
     locked: 0
   - name: Background
     uniqueID: 2195972665
