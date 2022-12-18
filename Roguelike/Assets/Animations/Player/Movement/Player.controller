@@ -115,7 +115,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
+  m_Name: Movement
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: -3943647117052572685}
@@ -162,7 +162,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlendTree
+  m_Name: Up
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 8b65198c9fa77584e97895220e994c17, type: 2}
@@ -193,7 +193,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlendTree
+  m_Name: Down
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 0eff3d46d6c513c4fa5ae047db008af3, type: 2}
@@ -457,7 +457,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlendTree
+  m_Name: Right
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: e30e3b3333dc90c46bbc08e1515a4c6d, type: 2}
@@ -575,7 +575,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlendTree
+  m_Name: Left
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 73da12a354feea7428e0bdcc0502b961, type: 2}
