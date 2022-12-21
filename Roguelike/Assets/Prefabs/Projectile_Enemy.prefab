@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7501515855324351522}
   - component: {fileID: 4179659120079647578}
   - component: {fileID: 4298940451504136874}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Projectile_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1792544109
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -857748186, guid: 67fe35159f78d3c41b64737536591d63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
