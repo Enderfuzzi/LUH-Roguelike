@@ -12,6 +12,7 @@ public class SkeletonMageProjectileLauncher : MonoBehaviour
     {
         Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
         GameObject projectile = Instantiate(projectileType, spawnPosition, spawnRotation);
+        projectile.GetComponent<Projectile>().setDamage(this.GetComponent<SkeletonMage>().getDamage());
         projectile.transform.Rotate(0, 0, rotation);
         projectile.GetComponent<Rigidbody2D>().AddRelativeForce(flyingDirection * projectileSpeed);
     }

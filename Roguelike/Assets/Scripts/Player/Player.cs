@@ -15,8 +15,13 @@ public class Player : MonoBehaviour, ILiving
     [SerializeField] private float damageResistance = 1.0f;
     [SerializeField] private float lifesteal = 1.0f;
     [SerializeField] private int level = 0;
-    [SerializeField] private float expierence = 0.0f;
-    [SerializeField] private float levelBorder = 10.0f;
+    [SerializeField] private int expierence = 0;
+    [SerializeField] private int levelBorder = 10;
+
+    [SerializeField] private int bronze = 0;
+    [SerializeField] private int silver = 0;
+    [SerializeField] private int gold = 0;
+    [SerializeField] private int crystal = 0;
 
     public float getDamage()
     {
@@ -31,7 +36,7 @@ public class Player : MonoBehaviour, ILiving
     
     public void takeDamage(float value)
     {
-        changeCurrentLife(value * (1 - damageResistance / 100));
+        changeCurrentLife(-1 * value * (1 - damageResistance / 100));
     }
 
     public float getCurrentLife()
@@ -43,7 +48,7 @@ public class Player : MonoBehaviour, ILiving
     {
         currentLife += value;
         if (currentLife > maximalLife) currentLife = maximalLife;
-        if (currentLife <= 0.0f) ; //death here 
+        if (currentLife <= 0.0f) die(); 
     }
 
     public float getMaximalLife()
@@ -94,26 +99,61 @@ public class Player : MonoBehaviour, ILiving
         return level;
     }
 
-    public void increaseExperience(float value)
+    public void addExperience()
     {
-        expierence += value;
-        if (expierence >= levelBorder)
+        expierence++;
+        if (expierence == levelBorder)
         {
             level++;
-            expierence -= levelBorder;
+            expierence = 0;
             levelBorder += 10 * level;
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void die()
     {
-        
+        Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void addBronze()
     {
-        
+        bronze++;
     }
+
+    public int getBronze()
+    {
+        return bronze;
+    }
+
+    public void addSilver()
+    {
+        silver++;
+    }
+
+    public int getSilver()
+    {
+        return silver;
+    }
+
+    public void addGold()
+    {
+        gold++;
+    }
+
+    public int getGold()
+    {
+        return gold;
+    }
+
+    public void addCrystal()
+    {
+        crystal++;
+    }
+
+    public int getCrystal()
+    {
+        return crystal;
+    }
+
+
 }

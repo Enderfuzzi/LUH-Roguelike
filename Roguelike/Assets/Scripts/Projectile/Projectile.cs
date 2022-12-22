@@ -9,7 +9,8 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ILiving livingObject = collision.gameObject.GetComponent<ILiving>();
+        
+        ILiving livingObject = collision.gameObject.transform.parent.GetComponent<ILiving>();
 
         if (livingObject != null)
         {

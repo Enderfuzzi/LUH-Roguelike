@@ -52,6 +52,7 @@ Test Project is used for experimental test of functions and seeing how features 
 - Character Animation: [Mage Attack](https://opengameart.org/content/mage-attack) modified version of Character Sprites by k-skills [^2]
 - Spell Animations [Spell Animation Spritesheets](https://opengameart.org/content/spell-animation-spritesheets) by Viktor Hahn (Viktor.Hahn@web.de) [^2]
 - Enemys [[LPC] Medival fantasy Character Sprites](https://opengameart.org/content/lpc-medieval-fantasy-character-sprites) by wulax [^2]
+- Dropable Ressources: [Free Minerals Pixel Art Icons](https://assetstore.unity.com/packages/2d/gui/icons/free-minerals-pixel-art-icons-196216) by CraftPix
 [^1]: Modified for usage
 [^2]: Link for [opengameart.org](https://opengameart.org/)
 ## Licence
