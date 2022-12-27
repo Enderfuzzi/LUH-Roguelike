@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour, ILiving
 {
     [SerializeField] PlayerController pc;
+    [SerializeField] UI playerUI;
 
     // begin stats
     [SerializeField] private float damage = 1.0f;
@@ -22,6 +23,11 @@ public class Player : MonoBehaviour, ILiving
     [SerializeField] private int silver = 0;
     [SerializeField] private int gold = 0;
     [SerializeField] private int crystal = 0;
+
+    void Start()
+    {
+
+    }
 
     public float getDamage()
     {
@@ -48,6 +54,7 @@ public class Player : MonoBehaviour, ILiving
     {
         currentLife += value;
         if (currentLife > maximalLife) currentLife = maximalLife;
+        playerUI.updateLife((int) currentLife, (int) maximalLife);
         if (currentLife <= 0.0f) die(); 
     }
 
@@ -60,6 +67,7 @@ public class Player : MonoBehaviour, ILiving
     {
         maximalLife += value;
         if (maximalLife < 1.0f) maximalLife = 1.0f;
+        playerUI.updateLife((int) currentLife,(int) maximalLife);
     }
 
     public float getMovementSpeed()
@@ -108,6 +116,7 @@ public class Player : MonoBehaviour, ILiving
             expierence = 0;
             levelBorder += 10 * level;
         }
+        playerUI.updateExperience(expierence, levelBorder);
     }
 
     public void die()
@@ -118,6 +127,7 @@ public class Player : MonoBehaviour, ILiving
     public void addBronze()
     {
         bronze++;
+        playerUI.updateBronze(bronze);
     }
 
     public int getBronze()
@@ -128,6 +138,7 @@ public class Player : MonoBehaviour, ILiving
     public void addSilver()
     {
         silver++;
+        playerUI.updateSilver(silver);
     }
 
     public int getSilver()
@@ -138,6 +149,7 @@ public class Player : MonoBehaviour, ILiving
     public void addGold()
     {
         gold++;
+        playerUI.updateGold(gold);
     }
 
     public int getGold()
@@ -148,6 +160,7 @@ public class Player : MonoBehaviour, ILiving
     public void addCrystal()
     {
         crystal++;
+        playerUI.updateCrystal(crystal);
     }
 
     public int getCrystal()

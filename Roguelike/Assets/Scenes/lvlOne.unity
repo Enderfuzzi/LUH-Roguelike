@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 97941860}
   - component: {fileID: 97941863}
   - component: {fileID: 97941862}
+  - component: {fileID: 97941864}
   m_Layer: 0
   m_Name: Bronze_Coin
   m_TagString: Untagged
@@ -453,7 +454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97941859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.4, y: -1.78, z: 0}
+  m_LocalPosition: {x: -9.08, y: -1.44, z: 0}
   m_LocalScale: {x: 1.6074, y: 1.5115, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -497,6 +498,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &97941864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97941859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fbf6b2d2c301a498efbff471f21459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &285845488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,6 +3660,7 @@ GameObject:
   - component: {fileID: 670821930}
   - component: {fileID: 670821932}
   - component: {fileID: 670821931}
+  - component: {fileID: 670821933}
   m_Layer: 5
   m_Name: Bronze_Amount
   m_TagString: Untagged
@@ -3694,9 +3708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '20
-
-'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
   m_sharedMaterial: {fileID: 3330222450226452418, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
@@ -3773,6 +3785,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670821929}
   m_CullTransparentMesh: 1
+--- !u!114 &670821933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670821929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63db18649e589ae43b89ebcd031715fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 670821931}
 --- !u!1 &788879137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,6 +3912,7 @@ GameObject:
   - component: {fileID: 822084749}
   - component: {fileID: 822084751}
   - component: {fileID: 822084750}
+  - component: {fileID: 822084752}
   m_Layer: 5
   m_Name: Gold_Amount
   m_TagString: Untagged
@@ -3934,9 +3960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '20
-
-'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
   m_sharedMaterial: {fileID: 3330222450226452418, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
@@ -4013,6 +4037,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822084748}
   m_CullTransparentMesh: 1
+--- !u!114 &822084752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822084748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63db18649e589ae43b89ebcd031715fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 822084750}
 --- !u!1001 &826374849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4192,6 +4229,7 @@ GameObject:
   - component: {fileID: 866770621}
   - component: {fileID: 866770623}
   - component: {fileID: 866770622}
+  - component: {fileID: 866770624}
   m_Layer: 5
   m_Name: Health_Text
   m_TagString: Untagged
@@ -4316,6 +4354,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866770620}
   m_CullTransparentMesh: 1
+--- !u!114 &866770624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866770620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d546242ac73424b8fa031ab6c9833e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 866770622}
 --- !u!1 &1049291632
 GameObject:
   m_ObjectHideFlags: 0
@@ -8083,6 +8134,7 @@ GameObject:
   - component: {fileID: 1171960313}
   - component: {fileID: 1171960315}
   - component: {fileID: 1171960314}
+  - component: {fileID: 1171960316}
   m_Layer: 5
   m_Name: Crystal_Amount
   m_TagString: Untagged
@@ -8130,9 +8182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '20
-
-'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
   m_sharedMaterial: {fileID: 3330222450226452418, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
@@ -8209,6 +8259,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171960312}
   m_CullTransparentMesh: 1
+--- !u!114 &1171960316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171960312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63db18649e589ae43b89ebcd031715fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 1171960314}
 --- !u!1 &1172065990
 GameObject:
   m_ObjectHideFlags: 0
@@ -13100,6 +13163,7 @@ GameObject:
   - component: {fileID: 1781929362}
   - component: {fileID: 1781929364}
   - component: {fileID: 1781929363}
+  - component: {fileID: 1781929365}
   m_Layer: 5
   m_Name: Experience_Text
   m_TagString: Untagged
@@ -13224,6 +13288,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781929361}
   m_CullTransparentMesh: 1
+--- !u!114 &1781929365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781929361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d546242ac73424b8fa031ab6c9833e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 1781929363}
 --- !u!1 &1832646493
 GameObject:
   m_ObjectHideFlags: 0
@@ -13240,6 +13317,7 @@ GameObject:
   - component: {fileID: 1832646498}
   - component: {fileID: 1832646501}
   - component: {fileID: 1832646499}
+  - component: {fileID: 1832646502}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -13335,7 +13413,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1832646497
 Transform:
   m_ObjectHideFlags: 0
@@ -13402,6 +13480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pc: {fileID: 1832646494}
+  playerUI: {fileID: 1832646502}
   damage: 1
   currentLife: 5
   maximalLife: 5
@@ -13412,6 +13491,10 @@ MonoBehaviour:
   level: 0
   expierence: 0
   levelBorder: 10
+  bronze: 0
+  silver: 0
+  gold: 0
+  crystal: 0
 --- !u!114 &1832646501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13426,6 +13509,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: {fileID: 1761191224659969698, guid: 5c0caf888033c3b4cac7a5ff49a329b5, type: 3}
   projectileSpeed: 700
+--- !u!114 &1832646502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832646493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d2815803c8b9a4582c1431c4e02a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bronzeField: {fileID: 670821929}
+  silverField: {fileID: 1957161697}
+  goldField: {fileID: 822084748}
+  crystalField: {fileID: 1171960312}
+  healthField: {fileID: 866770620}
+  experienceField: {fileID: 1781929361}
 --- !u!1 &1833286632
 GameObject:
   m_ObjectHideFlags: 0
@@ -13715,6 +13816,7 @@ GameObject:
   - component: {fileID: 1957161698}
   - component: {fileID: 1957161700}
   - component: {fileID: 1957161699}
+  - component: {fileID: 1957161701}
   m_Layer: 5
   m_Name: Silver_Amount
   m_TagString: Untagged
@@ -13762,9 +13864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '20
-
-'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
   m_sharedMaterial: {fileID: 3330222450226452418, guid: a7db47b355a41c943be76a50b0e517b7, type: 2}
@@ -13841,6 +13941,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957161697}
   m_CullTransparentMesh: 1
+--- !u!114 &1957161701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957161697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63db18649e589ae43b89ebcd031715fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 1957161699}
 --- !u!1 &1968695635
 GameObject:
   m_ObjectHideFlags: 0
