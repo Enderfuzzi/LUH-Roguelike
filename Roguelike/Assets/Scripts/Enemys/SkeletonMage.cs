@@ -14,6 +14,12 @@ public class SkeletonMage : MonoBehaviour, ILiving
     [SerializeField] private float statModifier = 1.0f;
     [SerializeField] public float testfield = 1.0f;
 
+    //Drops
+    [SerializeField] private GameObject bronze;
+    [SerializeField] private GameObject silver;
+    [SerializeField] private GameObject gold;
+    [SerializeField] private GameObject crystal;
+
     public void takeDamage(float value)
     {
         testfield += value;
@@ -75,9 +81,50 @@ public class SkeletonMage : MonoBehaviour, ILiving
         damageResistance += value;
     }
 
+    [SerializeField] private LayerMask layermask;
+
     public void die()
     {
+        int random = Random.Range(1, 101);
+        if (random <= 100)
+        {
+            for (int i = 0; i < Random.Range(16, 32); i++)
+            {
+                Vector3 spawnPosition = randomVector();
+                if (!Physics.CheckSphere(spawnPosition, 1f,layermask))
+                {
+                    Instantiate(bronze, spawnPosition, Quaternion.Euler(0, 0, 0));
+                }
+            }
+        }
+        else if (random <= 80)
+        {
+            for (int i = 0; i < Random.Range(8, 16); i++)
+            {
+                Instantiate(silver, transform.position * Random.Range(0.5f, 1.51f), Quaternion.Euler(0, 0, 0));
+            }
+        }
+        else if (random <= 95)
+        {
+            for (int i = 0; i < Random.Range(4, 8); i++)
+            {
+                Instantiate(gold, transform.position * Random.Range(0.5f, 1.51f), Quaternion.Euler(0, 0, 0));
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Random.Range(1, 4); i++)
+            {
+                Instantiate(crystal, transform.position * Random.Range(0.5f, 1.51f), Quaternion.Euler(0, 0, 0));
+            }
+        }
         Destroy(gameObject);
+    }
+
+
+    private Vector3 randomVector()
+    {
+        return transform.position + new Vector3(Random.Range(-0.8f, 0.81f), Random.Range(-0.8f, 0.81f), 0);
     }
 
 }
