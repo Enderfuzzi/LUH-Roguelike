@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] public Animator animator;
-    [SerializeField] private float damage = 0.0f;
+    [SerializeField] private int damage = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
         animator.SetTrigger("hitObject");
     }
 
-    public void setDamage(float value)
+    public void setDamage(int value)
     {
         this.damage = value;
     }

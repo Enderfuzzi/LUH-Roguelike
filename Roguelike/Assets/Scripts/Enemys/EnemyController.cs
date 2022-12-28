@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] public Animator animator;
 
+    [SerializeField] private LayerMask layerMask;
+
     private Vector3 velocity;
 
     // Start is called before the first frame update
@@ -27,6 +29,17 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         animator.ResetTrigger("attackAnimation");
+
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, new Vector3(35, 0, 0), Color.yellow);
+        Debug.DrawRay(transform.position, new Vector3(-35, 0, 0), Color.yellow);
+        Debug.DrawRay(transform.position, new Vector3(0, 35, 0), Color.green);
+        Debug.DrawRay(transform.position, new Vector3(0, -35, 0), Color.green);
+        // if (Physics.Raycast(transform.position, new Vector3(1, 0, 0), out hit, layerMask))
+        //  { 
+        //     Debug.DrawRay(transform.position, new Vector3(1, 0, 0), Color.yellow);
+        //  }
+
         if (Input.GetKeyDown("space"))
         {
             animator.SetTrigger("attackAnimation");
@@ -63,4 +76,11 @@ public class EnemyController : MonoBehaviour
         this.movementSpeed = movementSpeed;
         animator.SetFloat("movementAnimationSpeed", this.movementSpeed / 5.0f);
     }
+
+    private void shoot()
+    {
+
+    }
+
+
 }

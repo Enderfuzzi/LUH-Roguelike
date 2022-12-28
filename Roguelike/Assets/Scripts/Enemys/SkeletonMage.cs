@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SkeletonMage : MonoBehaviour, ILiving
 {
-    [SerializeField] private float damage = 1.0f;
-    [SerializeField] private float currentLife = 5.0f;
-    [SerializeField] private float maximalLife = 5.0f;
+    [SerializeField] private int damage = 10;
+    [SerializeField] private int currentLife = 20;
+    [SerializeField] private int maximalLife = 20;
     [SerializeField] private float attackSpeed = 1.0f;
     [SerializeField] private float movementSpeed = 5.0f;
-    [SerializeField] private float damageResistance = 1.0f;
+    [SerializeField] private int damageResistance = 1;
 
-    [SerializeField] private float statModifier = 1.0f;
-    [SerializeField] public float testfield = 1.0f;
+    [SerializeField] private int statModifier = 1;
 
     //Drops
     [SerializeField] private GameObject bronze;
@@ -20,40 +19,39 @@ public class SkeletonMage : MonoBehaviour, ILiving
     [SerializeField] private GameObject gold;
     [SerializeField] private GameObject crystal;
 
-    public void takeDamage(float value)
+    public void takeDamage(int value)
     {
-        testfield += value;
-        changeCurrentLife(-1.0f * value * (1.0f - damageResistance / 100.0f));
+        changeCurrentLife(-1 * (value - 1));
     }
 
-    public void updateStatModifier(float value)
+    public void updateStatModifier(int value)
     {
-        if (value > 0.0f)
+        if (value > 0)
         {
             statModifier = value;
         } 
     }
 
-    public float getDamage()
+    public int getDamage()
     {
         return damage;
     }
 
-    public void changeDamage(float value)
+    public void changeDamage(int value)
     {
         damage += value;
     }
 
-    public float getCurrentLife()
+    public int getCurrentLife()
     {
         return currentLife;
     }
 
-    public void changeCurrentLife(float value) 
+    public void changeCurrentLife(int value) 
     {
-        currentLife += Mathf.Round(value);
+        currentLife += value;
         if (currentLife > maximalLife) currentLife = maximalLife;
-        if (currentLife <= 0.0f) die();
+        if (currentLife <= 0) die();
     }
 
     public float getMaximalLife()
@@ -61,7 +59,7 @@ public class SkeletonMage : MonoBehaviour, ILiving
         return maximalLife; 
     }
 
-    public void changeMaximalLife(float value)
+    public void changeMaximalLife(int value)
     {
         maximalLife += value;
     }
@@ -76,46 +74,40 @@ public class SkeletonMage : MonoBehaviour, ILiving
         movementSpeed += value;
     }
 
-    public void changeDamageResistance(float value)
+    public void changeDamageResistance(int value)
     {
         damageResistance += value;
     }
 
-    [SerializeField] private LayerMask layermask;
-
     public void die()
     {
         int random = Random.Range(1, 101);
-        if (random <= 100)
+        if (random <= 50)
         {
-            for (int i = 0; i < Random.Range(16, 32); i++)
+            for (int i = 0; i < Random.Range(3, 6); i++)
             {
-                Vector3 spawnPosition = randomVector();
-                if (!Physics.CheckSphere(spawnPosition, 1f,layermask))
-                {
-                    Instantiate(bronze, spawnPosition, Quaternion.Euler(0, 0, 0));
-                }
+                    Instantiate(bronze, randomVector(), Quaternion.Euler(0, 0, 0));
             }
         }
         else if (random <= 80)
         {
-            for (int i = 0; i < Random.Range(8, 16); i++)
+            for (int i = 0; i < Random.Range(1, 6); i++)
             {
-                Instantiate(silver, transform.position * Random.Range(0.5f, 1.51f), Quaternion.Euler(0, 0, 0));
+                Instantiate(silver, randomVector(), Quaternion.Euler(0, 0, 0));
             }
         }
         else if (random <= 95)
         {
-            for (int i = 0; i < Random.Range(4, 8); i++)
+            for (int i = 0; i < Random.Range(1, 5); i++)
             {
-                Instantiate(gold, transform.position * Random.Range(0.5f, 1.51f), Quaternion.Euler(0, 0, 0));
+                Instantiate(gold, randomVector(), Quaternion.Euler(0, 0, 0));
             }
         }
         else
         {
-            for (int i = 0; i < Random.Range(1, 4); i++)
+            for (int i = 0; i < Random.Range(1, 3); i++)
             {
-                Instantiate(crystal, transform.position * Random.Range(0.5f, 1.51f), Quaternion.Euler(0, 0, 0));
+                Instantiate(crystal, randomVector(), Quaternion.Euler(0, 0, 0));
             }
         }
         Destroy(gameObject);
@@ -124,7 +116,7 @@ public class SkeletonMage : MonoBehaviour, ILiving
 
     private Vector3 randomVector()
     {
-        return transform.position + new Vector3(Random.Range(-0.8f, 0.81f), Random.Range(-0.8f, 0.81f), 0);
+        return transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-1.0f, -0.76f), 0);
     }
 
 }

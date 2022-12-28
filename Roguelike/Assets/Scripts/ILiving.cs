@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ILiving
 {
-    void takeDamage(float value);
+    void takeDamage(int value);
 
     void die();
 }

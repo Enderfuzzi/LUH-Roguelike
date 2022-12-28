@@ -8,12 +8,12 @@ public class Player : MonoBehaviour, ILiving
     [SerializeField] UI playerUI;
 
     // begin stats
-    [SerializeField] private float damage = 1.0f;
-    [SerializeField] private float currentLife = 1.0f;
-    [SerializeField] private float maximalLife = 1.0f;
+    [SerializeField] private int damage = 5;
+    [SerializeField] private int currentLife = 100;
+    [SerializeField] private int maximalLife = 100;
     [SerializeField] private float attackSpeed = 1.0f;
     [SerializeField] private float movementSpeed = 1.0f;
-    [SerializeField] private float damageResistance = 1.0f;
+    [SerializeField] private int damageResistance = 1;
     [SerializeField] private float lifesteal = 1.0f;
     [SerializeField] private int level = 0;
     [SerializeField] private int expierence = 0;
@@ -29,33 +29,33 @@ public class Player : MonoBehaviour, ILiving
 
     }
 
-    public float getDamage()
+    public int getDamage()
     {
         return damage;
     }
 
-    public void changeDamage(float value)
+    public void changeDamage(int value)
     {
         damage += value;
-        if (damage < 0.0f) damage = 0.0f;
+        if (damage < 0) damage = 0;
     }
     
-    public void takeDamage(float value)
+    public void takeDamage(int value)
     {
-        changeCurrentLife(-1 * value * (1 - damageResistance / 100));
+        changeCurrentLife(-1 * (value - 1));
     }
 
-    public float getCurrentLife()
+    public int getCurrentLife()
     {
         return currentLife;
     }
 
-    public void changeCurrentLife(float value)
+    public void changeCurrentLife(int value)
     {
         currentLife += value;
         if (currentLife > maximalLife) currentLife = maximalLife;
-        playerUI.updateLife((int) currentLife, (int) maximalLife);
-        if (currentLife <= 0.0f) die(); 
+        playerUI.updateLife(currentLife,maximalLife);
+        if (currentLife <= 0) die(); 
     }
 
     public float getMaximalLife()
@@ -63,11 +63,11 @@ public class Player : MonoBehaviour, ILiving
         return maximalLife;
     }
 
-    public void changeMaximalLife(float value)
+    public void changeMaximalLife(int value)
     {
         maximalLife += value;
-        if (maximalLife < 1.0f) maximalLife = 1.0f;
-        playerUI.updateLife((int) currentLife,(int) maximalLife);
+        if (maximalLife < 1) maximalLife = 1;
+        playerUI.updateLife(currentLife,maximalLife);
     }
 
     public float getMovementSpeed()
@@ -81,12 +81,12 @@ public class Player : MonoBehaviour, ILiving
         if (movementSpeed < 1.0f) movementSpeed = 1.0f; 
     } 
 
-    public float getDamageResistance()
+    public int getDamageResistance()
     {
         return damageResistance;
     } 
 
-    public void changeDamageResistance(float value)
+    public void changeDamageResistance(int value)
     {
         damageResistance += value;
     }
