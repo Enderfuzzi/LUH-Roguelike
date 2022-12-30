@@ -16,7 +16,8 @@ public class EnemyController : MonoBehaviour
     private Vector3 velocity;
 
     private float playerDisplacement = 0.65f;
-    private float verticalDisplacement = 1f;
+    private float verticalDisplacement = 0.975f;
+    private float horizontalDisplacement = 0.5f;
 
     private LayerMask playerHitboxMask;
     private LayerMask projectileHitboxMask;
@@ -57,11 +58,13 @@ public class EnemyController : MonoBehaviour
             //Check if both path are avaible
             if (transform.position.y < playerReference.transform.position.y)
             {
-                verticalPath = walkable(transform.position, Vector2.up, Mathf.Abs(verticalDistance));
+                verticalPath = walkable(new Vector3(transform.position.x + horizontalDisplacement, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
+                verticalPath = verticalPath && walkable(new Vector3(transform.position.x - horizontalDisplacement, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
             }
             else if (transform.position.y > playerReference.transform.position.y)
             {
-                verticalPath = walkable(transform.position, Vector2.down, Mathf.Abs(verticalDistance));
+                verticalPath = walkable(new Vector3(transform.position.x + horizontalDisplacement, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
+                verticalPath = verticalPath && walkable(new Vector3(transform.position.x - horizontalDisplacement, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
             }
             else
             {
@@ -72,10 +75,12 @@ public class EnemyController : MonoBehaviour
             if (transform.position.x < playerReference.transform.position.x)
             {
                 horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.right, Mathf.Abs(horizontalDistance));
+                horizontalPath =  horizontalPath && walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement + 0.2f, 0), Vector2.right, Mathf.Abs(horizontalDistance));
             }
             else if (transform.position.x > playerReference.transform.position.x)
             {
                 horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.left, Mathf.Abs(horizontalDistance));
+                horizontalPath = horizontalPath && walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement + 0.2f, 0), Vector2.left, Mathf.Abs(horizontalDistance));
             }
             else
             {
