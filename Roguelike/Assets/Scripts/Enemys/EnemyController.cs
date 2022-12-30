@@ -15,9 +15,20 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 velocity;
 
+    private float playerDisplacement = 0.65f;
+    private float verticalDisplacement = 1f;
+
+    private LayerMask playerHitboxMask;
+    private LayerMask projectileHitboxMask;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        playerHitboxMask = LayerMask.GetMask("Player_Target");
+        projectileHitboxMask = LayerMask.GetMask("Enviroment_Projectile_Hitbox");
+
+
         this.setAttackAnimationSpeed(attackAnimationSpeed);
         this.setMovementSpeed(movementSpeed);
 
@@ -36,40 +47,68 @@ public class EnemyController : MonoBehaviour
         {
             bool verticalPath;
             bool horizontalPath;
-            float verticalDistance = playerReference.transform.position.y - transform.position.y;
+            bool shootableVertical = false;
+            bool shootableHorizontal = false;
+
+            float verticalDistance = playerReference.transform.position.y + playerDisplacement - transform.position.y;
             float horizontalDistance = playerReference.transform.position.x - transform.position.x;
             Debug.Log("Vertical Distance: " + verticalDistance);
             Debug.Log("Horizontal Distance: " + horizontalDistance);
             //Check if both path are avaible
             if (transform.position.y < playerReference.transform.position.y)
             {
-                verticalPath = walkable(Vector2.up, Mathf.Abs(verticalDistance));
+                verticalPath = walkable(transform.position, Vector2.up, Mathf.Abs(verticalDistance));
             }
             else if (transform.position.y > playerReference.transform.position.y)
             {
-                verticalPath = walkable(Vector2.down, Mathf.Abs(verticalDistance));
+                verticalPath = walkable(transform.position, Vector2.down, Mathf.Abs(verticalDistance));
             }
             else
             {
                 verticalPath = true;
             }
+
             Debug.Log("Vertical Path: " + verticalPath);
             if (transform.position.x < playerReference.transform.position.x)
             {
-                horizontalPath = walkable(Vector2.right, Mathf.Abs(horizontalDistance));
+                horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.right, Mathf.Abs(horizontalDistance));
             }
             else if (transform.position.x > playerReference.transform.position.x)
             {
-                horizontalPath = walkable(Vector2.left, Mathf.Abs(horizontalDistance));
+                horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.left, Mathf.Abs(horizontalDistance));
             }
             else
             {
                 horizontalPath = true;  
             }
+            Debug.Log("horizontal Path: " + horizontalPath);
+
+            if (horizontalPath)
+            {
+                RaycastHit2D up = shootable(new Vector3(playerReference.transform.position.x, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
+                RaycastHit2D down = shootable(new Vector3(playerReference.transform.position.x, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
+                shootableHorizontal = up.collider == null || down.collider == null;
+            }
+
+            if (verticalPath)
+            {
+                RaycastHit2D right = shootable(new Vector3(transform.position.x, playerReference.transform.position.y, 0), Vector2.right, Mathf.Abs(horizontalDistance));
+                RaycastHit2D left = shootable(new Vector3(transform.position.x, playerReference.transform.position.y, 0), Vector2.left, Mathf.Abs(horizontalDistance));
+                shootableVertical = right.collider == null || left.collider == null;
+            }
+            Debug.Log("Shoot vertical: " + shootableVertical);
+            Debug.Log("Shoot horizontal: " + shootableHorizontal);
+            if (!shootableVertical && !shootableHorizontal)
+            {
+                Debug.Log("No option to Wlak");
+            }
+
             Debug.Log("Horizontal Path: " + horizontalPath);
             // if both path are avaible the path with the shortest distance is chosen 
-            if (verticalPath && horizontalPath)
+            if (verticalPath && horizontalPath && shootableVertical && shootableHorizontal)
             {
+
+
                 if (Mathf.Abs(verticalDistance) < Mathf.Abs(horizontalDistance))
                 {
                     if (verticalDistance < 0)
@@ -123,7 +162,7 @@ public class EnemyController : MonoBehaviour
                     }
                 }
             }
-            else if (verticalPath)
+            else if (verticalPath && shootableVertical)
             {
                 if (verticalDistance < 0)
                 {
@@ -135,7 +174,7 @@ public class EnemyController : MonoBehaviour
                 }
                 //verticalMovement = verticalDistance / Mathf.Abs(verticalDistance);
             }
-            else if (horizontalPath)
+            else if (horizontalPath && shootableHorizontal)
             {
                 if (horizontalDistance < 0)
                 {
@@ -146,6 +185,32 @@ public class EnemyController : MonoBehaviour
                     horizontalMovement = 1;
                 }
                 //horizontalMovement = horizontalMovement / Mathf.Abs(horizontalMovement);
+            }
+            else
+            {
+                if (horizontalPath)
+                {
+                    if (horizontalDistance < 0)
+                    {
+                        horizontalMovement = 1;
+                    }
+                    else
+                    {
+                        horizontalMovement = -1;
+                    }
+                }
+                if (verticalPath)
+                {
+                    if (horizontalDistance < 0)
+                    {
+                        verticalMovement = 1;
+                    }
+                    else
+                    {
+                        verticalMovement = -1;
+                    }
+                }
+
             }
         }
         Debug.Log("Vertical Movement: " + verticalMovement);
@@ -190,39 +255,37 @@ public class EnemyController : MonoBehaviour
     private bool shoot()
     {
 
-        LayerMask playerHitboxMask = LayerMask.GetMask("Player_Hitbox");
-        LayerMask projectileHitboxMask = LayerMask.GetMask("Enviroment_Projectile_Hitbox");
-
-        Debug.DrawRay(transform.position, new Vector3(35.0f, 0, 0), Color.yellow);
-        Debug.DrawRay(transform.position, new Vector3(-35.0f, 0, 0), Color.yellow);
-        Debug.DrawRay(transform.position, new Vector3(0, 35.0f, 0), Color.yellow);
-        Debug.DrawRay(transform.position, new Vector3(0, -35.0f, 0), Color.yellow);
-        if (attack(Vector2.right, playerHitboxMask, projectileHitboxMask))
+        //Debug.DrawRay(transform.position, new Vector3(35.0f, 0, 0), Color.yellow);
+        //Debug.DrawRay(transform.position, new Vector3(-35.0f, 0, 0), Color.yellow);
+        //Debug.DrawRay(transform.position, new Vector3(0, 35.0f, 0), Color.yellow);
+        //Debug.DrawRay(transform.position, new Vector3(0, -35.0f, 0), Color.yellow);
+        if (attack(Vector2.right))
         {
             return true;
         }
-        if (attack(Vector2.left, playerHitboxMask, projectileHitboxMask))
+        if (attack(Vector2.left))
         {
             return true;    
         }
         
-        if (attack(Vector2.up, playerHitboxMask, projectileHitboxMask))
+        if (attack(Vector2.up))
         {
             return true;
         }
-        if (attack(Vector2.down, playerHitboxMask, projectileHitboxMask))
+        if (attack(Vector2.down))
         {
             return true;
         }
         return false;
     }
 
-    private bool attack(Vector2 direction, LayerMask playerHitboxMask, LayerMask projectileHitboxMask)
+    private bool attack(Vector2 direction)
     {
-        RaycastHit2D playerHit = Physics2D.Raycast(transform.position, direction, 35.0f, playerHitboxMask.value);
+
+        RaycastHit2D playerHit = inSight(transform.position, direction);
         if (playerHit.collider != null)
         {
-            RaycastHit2D wallHit = Physics2D.Raycast(transform.position, direction, playerHit.distance, projectileHitboxMask);
+            RaycastHit2D wallHit = shootable(transform.position, direction, playerHit.distance);
             if (wallHit.collider == null)
             {
                 Debug.Log("Ray hit: " + playerHit.collider.gameObject + " at " + playerHit.point);
@@ -235,13 +298,27 @@ public class EnemyController : MonoBehaviour
             }
         }
         return false;
+       
     }
 
-    private bool walkable(Vector2 direction, float distance)
+    private RaycastHit2D inSight(Vector3 position, Vector2 direction)
+    {
+        Debug.DrawRay(position, direction * 35.0f, Color.yellow);
+        return Physics2D.Raycast(position, direction, 35.0f, playerHitboxMask.value);
+    }
+
+    private RaycastHit2D shootable(Vector3 position, Vector2 direction,float distance)
+    {
+        Debug.DrawRay(position, direction * distance, Color.red);
+        return Physics2D.Raycast(position, direction, distance, projectileHitboxMask);
+    }
+
+
+    private bool walkable(Vector3 position,Vector2 direction, float distance)
     {
         LayerMask enviromentHitbox = LayerMask.GetMask("Enviroment");
-
-        RaycastHit2D terrainHit = Physics2D.Raycast(transform.position, direction, distance, enviromentHitbox);
+        Debug.DrawRay(position, direction * distance, Color.yellow);
+        RaycastHit2D terrainHit = Physics2D.Raycast(position, direction, distance, enviromentHitbox);
         return terrainHit.collider == null;
     }
 
