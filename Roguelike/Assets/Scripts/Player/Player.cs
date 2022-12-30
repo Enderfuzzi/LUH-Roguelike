@@ -29,6 +29,12 @@ public class Player : MonoBehaviour, ILiving
 
     }
 
+    void Awake()
+    {
+
+    }
+
+
     public int getDamage()
     {
         return damage;

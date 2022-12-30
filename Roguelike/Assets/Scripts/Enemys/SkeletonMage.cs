@@ -18,6 +18,7 @@ public class SkeletonMage : MonoBehaviour, ILiving
     [SerializeField] private GameObject silver;
     [SerializeField] private GameObject gold;
     [SerializeField] private GameObject crystal;
+    [SerializeField] private GameObject experience;
 
     public void takeDamage(int value)
     {
@@ -81,6 +82,14 @@ public class SkeletonMage : MonoBehaviour, ILiving
 
     public void die()
     {
+        int experienceAmount = Random.Range(1, 4);
+        for (int i = 0;i<experienceAmount;i++)
+        {
+            Instantiate(experience, randomVector(), Quaternion.Euler(0, 0, 0));
+        }
+
+
+
         int random = Random.Range(1, 101);
         if (random <= 50)
         {
