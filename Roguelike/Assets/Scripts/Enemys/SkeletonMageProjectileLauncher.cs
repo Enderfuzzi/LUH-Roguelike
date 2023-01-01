@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class SkeletonMageProjectileLauncher : MonoBehaviour
 {
-  
+
+    [SerializeField] private GameObject up;
+    [SerializeField] private GameObject down;
+    [SerializeField] private GameObject right;
+    [SerializeField] private GameObject left;
+
+
+
+
     [SerializeField] private GameObject projectileType;
     [SerializeField] private float projectileSpeed;
 
@@ -19,22 +27,22 @@ public class SkeletonMageProjectileLauncher : MonoBehaviour
 
     public void launchDownProjectile()
     {
-        this.launchProjectile(GameObject.Find("/Skeleton_Mage/Projectile_Launcher/Down_Launcher").transform.position, -90.0f, Vector3.down);
+        this.launchProjectile(down.transform.position, -90.0f, Vector3.down);
     }
 
     public void lauchUpProjectile()
     {
-        this.launchProjectile(GameObject.Find("/Skeleton_Mage/Projectile_Launcher/Up_Launcher").transform.position, 90.0f, Vector3.up);
+        this.launchProjectile(up.transform.position, 90.0f, Vector3.up);
     }
 
     public void launchLeftProjectile()
     {
-        this.launchProjectile(GameObject.Find("/Skeleton_Mage/Projectile_Launcher/Left_Launcher").transform.position, 180.0f, Vector3.left);
+        this.launchProjectile(left.transform.position, 180.0f, Vector3.left);
     }
 
     public void launchRightProjectile()
     {
-        this.launchProjectile(GameObject.Find("/Skeleton_Mage/Projectile_Launcher/Right_Launcher").transform.position, 0.0f, Vector3.right);
+        this.launchProjectile(right.transform.position, 0.0f, Vector3.right);
     }
 }
 

@@ -31,7 +31,21 @@ public class Player : MonoBehaviour, ILiving
 
     void Awake()
     {
+        damage = 5;
+        currentLife = 100;
+        maximalLife = 100;
+        attackSpeed = 1.0f;
+        movementSpeed = 1.0f;
+        damageResistance = 1;
+        lifesteal = 1.0f;
+        level = 0;
+        expierence = 0;
+        levelBorder = 10;
 
+        bronze = 0;
+        silver = 0;
+        gold = 0;
+        crystal = 0;
     }
 
 

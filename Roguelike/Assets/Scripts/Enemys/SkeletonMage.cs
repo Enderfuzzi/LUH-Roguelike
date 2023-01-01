@@ -119,7 +119,9 @@ public class SkeletonMage : MonoBehaviour, ILiving
                 Instantiate(crystal, randomVector(), Quaternion.Euler(0, 0, 0));
             }
         }
-        Destroy(gameObject);
+
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
 

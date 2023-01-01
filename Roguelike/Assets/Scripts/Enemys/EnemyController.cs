@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
     private LayerMask playerHitboxMask;
     private LayerMask projectileHitboxMask;
 
+    private bool leavedSpawn = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,107 +42,96 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerReference == null)
+        {
+            return;
+        }
+
         float horizontalMovement = 0;
         float verticalMovement = 0;
  
         animator.ResetTrigger("attackAnimation");
-        if (!shoot())
+        if (!leavedSpawn)
         {
-            bool verticalPath;
-            bool horizontalPath;
-            bool shootableVertical = false;
-            bool shootableHorizontal = false;
-
-            float verticalDistance = playerReference.transform.position.y + playerDisplacement - transform.position.y;
-            float horizontalDistance = playerReference.transform.position.x - transform.position.x;
-            Debug.Log("Vertical Distance: " + verticalDistance);
-            Debug.Log("Horizontal Distance: " + horizontalDistance);
-            //Check if both path are avaible
-            if (transform.position.y < playerReference.transform.position.y)
-            {
-                verticalPath = walkable(new Vector3(transform.position.x + horizontalDisplacement, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
-                verticalPath = verticalPath && walkable(new Vector3(transform.position.x - horizontalDisplacement, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
-            }
-            else if (transform.position.y > playerReference.transform.position.y)
-            {
-                verticalPath = walkable(new Vector3(transform.position.x + horizontalDisplacement, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
-                verticalPath = verticalPath && walkable(new Vector3(transform.position.x - horizontalDisplacement, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
-            }
-            else
-            {
-                verticalPath = true;
-            }
-
-            Debug.Log("Vertical Path: " + verticalPath);
-            if (transform.position.x < playerReference.transform.position.x)
-            {
-                horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.right, Mathf.Abs(horizontalDistance));
-                horizontalPath =  horizontalPath && walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement + 0.2f, 0), Vector2.right, Mathf.Abs(horizontalDistance));
-            }
-            else if (transform.position.x > playerReference.transform.position.x)
-            {
-                horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.left, Mathf.Abs(horizontalDistance));
-                horizontalPath = horizontalPath && walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement + 0.2f, 0), Vector2.left, Mathf.Abs(horizontalDistance));
-            }
-            else
-            {
-                horizontalPath = true;  
-            }
-            Debug.Log("horizontal Path: " + horizontalPath);
-
-            if (horizontalPath)
-            {
-                RaycastHit2D up = shootable(new Vector3(playerReference.transform.position.x, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
-                RaycastHit2D down = shootable(new Vector3(playerReference.transform.position.x, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
-                shootableHorizontal = up.collider == null || down.collider == null;
-            }
-
-            if (verticalPath)
-            {
-                RaycastHit2D right = shootable(new Vector3(transform.position.x, playerReference.transform.position.y, 0), Vector2.right, Mathf.Abs(horizontalDistance));
-                RaycastHit2D left = shootable(new Vector3(transform.position.x, playerReference.transform.position.y, 0), Vector2.left, Mathf.Abs(horizontalDistance));
-                shootableVertical = right.collider == null || left.collider == null;
-            }
-            Debug.Log("Shoot vertical: " + shootableVertical);
-            Debug.Log("Shoot horizontal: " + shootableHorizontal);
-            if (!shootableVertical && !shootableHorizontal)
-            {
-                Debug.Log("No option to Wlak");
-            }
-
-            Debug.Log("Horizontal Path: " + horizontalPath);
-            // if both path are avaible the path with the shortest distance is chosen 
-            if (verticalPath && horizontalPath && shootableVertical && shootableHorizontal)
-            {
 
 
-                if (Mathf.Abs(verticalDistance) < Mathf.Abs(horizontalDistance))
+
+
+
+        }
+        else
+        {
+            if (!shoot())
+            {
+                bool verticalPath;
+                bool horizontalPath;
+                bool shootableVertical = false;
+                bool shootableHorizontal = false;
+
+                float verticalDistance = playerReference.transform.position.y + playerDisplacement - transform.position.y;
+                float horizontalDistance = playerReference.transform.position.x - transform.position.x;
+                Debug.Log("Vertical Distance: " + verticalDistance);
+                Debug.Log("Horizontal Distance: " + horizontalDistance);
+                //Check if both path are avaible
+                if (transform.position.y < playerReference.transform.position.y)
                 {
-                    if (verticalDistance < 0)
-                    {
-                        verticalMovement = -1;
-                    }
-                    else
-                    {
-                        verticalMovement = 1;
-                    }
+                    verticalPath = walkable(new Vector3(transform.position.x + horizontalDisplacement, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
+                    verticalPath = verticalPath && walkable(new Vector3(transform.position.x - horizontalDisplacement, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
                 }
-                else if (Mathf.Abs(verticalDistance) > Mathf.Abs(horizontalDistance))
+                else if (transform.position.y > playerReference.transform.position.y)
                 {
-                    if (horizontalDistance < 0)
-                    {
-                        horizontalMovement = -1;
-                    }
-                    else
-                    {
-                        horizontalMovement = 1;
-                    }
-                   // horizontalMovement = horizontalMovement / Mathf.Abs(horizontalMovement);
+                    verticalPath = walkable(new Vector3(transform.position.x + horizontalDisplacement, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
+                    verticalPath = verticalPath && walkable(new Vector3(transform.position.x - horizontalDisplacement, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
                 }
-                // Both Path have the same distance so choose a random path
                 else
                 {
-                    if (Random.Range(1,3) == 1)
+                    verticalPath = true;
+                }
+
+                Debug.Log("Vertical Path: " + verticalPath);
+                if (transform.position.x < playerReference.transform.position.x)
+                {
+                    horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.right, Mathf.Abs(horizontalDistance));
+                    horizontalPath = horizontalPath && walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement + 0.2f, 0), Vector2.right, Mathf.Abs(horizontalDistance));
+                }
+                else if (transform.position.x > playerReference.transform.position.x)
+                {
+                    horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.left, Mathf.Abs(horizontalDistance));
+                    horizontalPath = horizontalPath && walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement + 0.2f, 0), Vector2.left, Mathf.Abs(horizontalDistance));
+                }
+                else
+                {
+                    horizontalPath = true;
+                }
+                Debug.Log("horizontal Path: " + horizontalPath);
+
+                if (horizontalPath)
+                {
+                    RaycastHit2D up = shootable(new Vector3(playerReference.transform.position.x, transform.position.y, 0), Vector2.up, Mathf.Abs(verticalDistance));
+                    RaycastHit2D down = shootable(new Vector3(playerReference.transform.position.x, transform.position.y, 0), Vector2.down, Mathf.Abs(verticalDistance));
+                    shootableHorizontal = up.collider == null || down.collider == null;
+                }
+
+                if (verticalPath)
+                {
+                    RaycastHit2D right = shootable(new Vector3(transform.position.x, playerReference.transform.position.y, 0), Vector2.right, Mathf.Abs(horizontalDistance));
+                    RaycastHit2D left = shootable(new Vector3(transform.position.x, playerReference.transform.position.y, 0), Vector2.left, Mathf.Abs(horizontalDistance));
+                    shootableVertical = right.collider == null || left.collider == null;
+                }
+                Debug.Log("Shoot vertical: " + shootableVertical);
+                Debug.Log("Shoot horizontal: " + shootableHorizontal);
+                if (!shootableVertical && !shootableHorizontal)
+                {
+                    Debug.Log("No option to Wlak");
+                }
+
+                Debug.Log("Horizontal Path: " + horizontalPath);
+                // if both path are avaible the path with the shortest distance is chosen 
+                if (verticalPath && horizontalPath && shootableVertical && shootableHorizontal)
+                {
+
+
+                    if (Mathf.Abs(verticalDistance) < Mathf.Abs(horizontalDistance))
                     {
                         if (verticalDistance < 0)
                         {
@@ -150,10 +141,8 @@ public class EnemyController : MonoBehaviour
                         {
                             verticalMovement = 1;
                         }
-
-                        //verticalMovement = verticalDistance / Mathf.Abs(verticalDistance);
                     }
-                    else
+                    else if (Mathf.Abs(verticalDistance) > Mathf.Abs(horizontalDistance))
                     {
                         if (horizontalDistance < 0)
                         {
@@ -163,59 +152,88 @@ public class EnemyController : MonoBehaviour
                         {
                             horizontalMovement = 1;
                         }
-                        //horizontalMovement = horizontalMovement / Mathf.Abs(horizontalMovement);
+                        // horizontalMovement = horizontalMovement / Mathf.Abs(horizontalMovement);
                     }
-                }
-            }
-            else if (verticalPath && shootableVertical)
-            {
-                if (verticalDistance < 0)
-                {
-                    verticalMovement = -1;
-                }
-                else
-                {
-                    verticalMovement = 1;
-                }
-                //verticalMovement = verticalDistance / Mathf.Abs(verticalDistance);
-            }
-            else if (horizontalPath && shootableHorizontal)
-            {
-                if (horizontalDistance < 0)
-                {
-                    horizontalMovement = -1;
-                }
-                else
-                {
-                    horizontalMovement = 1;
-                }
-                //horizontalMovement = horizontalMovement / Mathf.Abs(horizontalMovement);
-            }
-            else
-            {
-                if (horizontalPath)
-                {
-                    if (horizontalDistance < 0)
-                    {
-                        horizontalMovement = 1;
-                    }
+                    // Both Path have the same distance so choose a random path
                     else
                     {
-                        horizontalMovement = -1;
+                        if (Random.Range(1, 3) == 1)
+                        {
+                            if (verticalDistance < 0)
+                            {
+                                verticalMovement = -1;
+                            }
+                            else
+                            {
+                                verticalMovement = 1;
+                            }
+
+                            //verticalMovement = verticalDistance / Mathf.Abs(verticalDistance);
+                        }
+                        else
+                        {
+                            if (horizontalDistance < 0)
+                            {
+                                horizontalMovement = -1;
+                            }
+                            else
+                            {
+                                horizontalMovement = 1;
+                            }
+                            //horizontalMovement = horizontalMovement / Mathf.Abs(horizontalMovement);
+                        }
                     }
                 }
-                if (verticalPath)
+                else if (verticalPath && shootableVertical)
                 {
-                    if (horizontalDistance < 0)
-                    {
-                        verticalMovement = 1;
-                    }
-                    else
+                    if (verticalDistance < 0)
                     {
                         verticalMovement = -1;
                     }
+                    else
+                    {
+                        verticalMovement = 1;
+                    }
+                    //verticalMovement = verticalDistance / Mathf.Abs(verticalDistance);
                 }
+                else if (horizontalPath && shootableHorizontal)
+                {
+                    if (horizontalDistance < 0)
+                    {
+                        horizontalMovement = -1;
+                    }
+                    else
+                    {
+                        horizontalMovement = 1;
+                    }
+                    //horizontalMovement = horizontalMovement / Mathf.Abs(horizontalMovement);
+                }
+                else
+                {
+                    if (horizontalPath)
+                    {
+                        if (horizontalDistance < 0)
+                        {
+                            horizontalMovement = 1;
+                        }
+                        else
+                        {
+                            horizontalMovement = -1;
+                        }
+                    }
+                    if (verticalPath)
+                    {
+                        if (horizontalDistance < 0)
+                        {
+                            verticalMovement = 1;
+                        }
+                        else
+                        {
+                            verticalMovement = -1;
+                        }
+                    }
 
+                }
             }
         }
         Debug.Log("Vertical Movement: " + verticalMovement);
@@ -254,7 +272,10 @@ public class EnemyController : MonoBehaviour
 
     }
 
-
+    public void setPlayerReference(GameObject player)
+    {
+        playerReference = player;
+    }
 
 
     private bool shoot()
