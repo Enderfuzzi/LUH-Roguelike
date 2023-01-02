@@ -70,8 +70,8 @@ public class EnemyController : MonoBehaviour
 
                 float verticalDistance = playerReference.transform.position.y + playerDisplacement - transform.position.y;
                 float horizontalDistance = playerReference.transform.position.x - transform.position.x;
-                Debug.Log("Vertical Distance: " + verticalDistance);
-                Debug.Log("Horizontal Distance: " + horizontalDistance);
+                //Debug.Log("Vertical Distance: " + verticalDistance);
+               // Debug.Log("Horizontal Distance: " + horizontalDistance);
                 //Check if both path are avaible
                 if (transform.position.y < playerReference.transform.position.y)
                 {
@@ -88,7 +88,7 @@ public class EnemyController : MonoBehaviour
                     verticalPath = true;
                 }
 
-                Debug.Log("Vertical Path: " + verticalPath);
+                //Debug.Log("Vertical Path: " + verticalPath);
                 if (transform.position.x < playerReference.transform.position.x)
                 {
                     horizontalPath = walkable(new Vector3(transform.position.x, transform.position.y - verticalDisplacement, 0), Vector2.right, Mathf.Abs(horizontalDistance));
@@ -103,7 +103,7 @@ public class EnemyController : MonoBehaviour
                 {
                     horizontalPath = true;
                 }
-                Debug.Log("horizontal Path: " + horizontalPath);
+                //Debug.Log("horizontal Path: " + horizontalPath);
 
                 if (horizontalPath)
                 {
@@ -118,14 +118,14 @@ public class EnemyController : MonoBehaviour
                     RaycastHit2D left = shootable(new Vector3(transform.position.x, playerReference.transform.position.y, 0), Vector2.left, Mathf.Abs(horizontalDistance));
                     shootableVertical = right.collider == null || left.collider == null;
                 }
-                Debug.Log("Shoot vertical: " + shootableVertical);
-                Debug.Log("Shoot horizontal: " + shootableHorizontal);
+                //Debug.Log("Shoot vertical: " + shootableVertical);
+                //Debug.Log("Shoot horizontal: " + shootableHorizontal);
                 if (!shootableVertical && !shootableHorizontal)
                 {
                     Debug.Log("No option to Wlak");
                 }
 
-                Debug.Log("Horizontal Path: " + horizontalPath);
+               // Debug.Log("Horizontal Path: " + horizontalPath);
                 // if both path are avaible the path with the shortest distance is chosen 
                 if (verticalPath && horizontalPath && shootableVertical && shootableHorizontal)
                 {
@@ -236,8 +236,8 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Vertical Movement: " + verticalMovement);
-        Debug.Log("Horizontal Movement: " + horizontalMovement);
+        //Debug.Log("Vertical Movement: " + verticalMovement);
+        //Debug.Log("Horizontal Movement: " + horizontalMovement);
 
         if (verticalMovement != 0 || horizontalMovement != 0)
         {

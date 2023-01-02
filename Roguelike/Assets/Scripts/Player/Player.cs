@@ -31,6 +31,7 @@ public class Player : MonoBehaviour, ILiving
 
     void Awake()
     {
+        /**
         damage = 5;
         currentLife = 100;
         maximalLife = 100;
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour, ILiving
         silver = 0;
         gold = 0;
         crystal = 0;
+        */
     }
 
 

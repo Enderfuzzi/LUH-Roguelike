@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 7639124277227779709}
   playerUI: {fileID: 7639124277227779653}
-  damage: 5
+  damage: 200
   currentLife: 100
   maximalLife: 100
   attackSpeed: 1

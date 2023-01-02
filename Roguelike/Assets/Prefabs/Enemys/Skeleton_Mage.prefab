@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   currentLife: 10
-  maximalLife: 20
+  maximalLife: 10
   attackSpeed: 1
   movementSpeed: 5
   damageResistance: 1
@@ -238,7 +238,7 @@ MonoBehaviour:
   right: {fileID: 7650470517529591873}
   left: {fileID: 7650470518049274728}
   projectileType: {fileID: 1854779066549943954, guid: e2ee15cf66c5fd64f81859b316cc1aea, type: 3}
-  projectileSpeed: 700
+  projectileSpeed: 600
 --- !u!1 &7650470517370326598
 GameObject:
   m_ObjectHideFlags: 0

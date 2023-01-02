@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
 
     public void DestroyAfterImpact()
     {
+        gameObject.SetActive(false);
         Destroy(gameObject);
     }
 

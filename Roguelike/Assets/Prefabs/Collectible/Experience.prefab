@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8926375267686152747}
   - component: {fileID: 7750018771955410868}
   - component: {fileID: 3436041659377645264}
+  - component: {fileID: 8731999508899387497}
   m_Layer: 14
   m_Name: Experience
   m_TagString: Untagged
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1792544109
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 26da7ea5de71d0d429d78bd1d77c730c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -143,6 +144,18 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!114 &8731999508899387497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763999498445267110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e556507cc46ca04a9a1408c9749b726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4624239755454197779
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +234,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

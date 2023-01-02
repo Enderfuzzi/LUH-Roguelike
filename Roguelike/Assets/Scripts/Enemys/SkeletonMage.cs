@@ -83,7 +83,8 @@ public class SkeletonMage : MonoBehaviour, ILiving
     public void die()
     {
         int experienceAmount = Random.Range(1, 4);
-        for (int i = 0;i<experienceAmount;i++)
+        Debug.Log("Experience: " + experienceAmount);
+        for (int i = 0;i < experienceAmount; i++)
         {
             Instantiate(experience, randomVector(), Quaternion.Euler(0, 0, 0));
         }
