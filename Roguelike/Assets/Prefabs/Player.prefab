@@ -294,7 +294,7 @@ MonoBehaviour:
   currentLife: 100
   maximalLife: 100
   attackSpeed: 1
-  movementSpeed: 1
+  movementSpeed: 5
   damageResistance: 1
   lifesteal: 1
   level: 0

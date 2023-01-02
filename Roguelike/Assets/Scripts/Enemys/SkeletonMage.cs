@@ -122,7 +122,7 @@ public class SkeletonMage : MonoBehaviour, ILiving
         }
 
         gameObject.SetActive(false);
-        //Destroy(gameObject);
+        Destroy(gameObject, 10);
     }
 
 

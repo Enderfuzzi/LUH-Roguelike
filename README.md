@@ -59,15 +59,20 @@ Test Project is used for experimental test of functions and seeing how features 
 "Sample text"
 ## To do List
 [Link for 2D Tutorial](https://www.youtube.com/playlist?list=PL0m-AJLtwLv7Fe6Wj32zJIHuHk5jBUDzO) 
-- [ ] implement Main menu scene
-- [ ] implement Game scene
+- [x] implement Main menu scene
+- [x] implement Game scene
 - [ ] implement Credit scene
-- [ ] create arena for first level
-- [ ] implement character movement
-- [ ] implement enemy movement and spawn
-- [ ] add first attack of player and enemys
-- [ ] add dammage and display currents stats
-- [ ] add enemy dropping loot
-- [ ] add upgrades
+- [x] create arena for first level
+- [x] implement character movement
+- [x] implement enemy movement and spawn
+- [x] add first attack of player and enemys
+- [x] add dammage and display currents stats
+- [x] add enemy dropping loot
+- [x] add upgrades
 - [ ] implement a permanent save system for permanent upgrades and game informations
+- [ ] implement Permanent shop
+- [ ] implement settings
+- [ ] implement sound effects
 - [ ] add more content...
+Bugfixes:
+- [ ] fix enemy spawn point with movement

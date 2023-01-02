@@ -30,37 +30,49 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        animator.ResetTrigger("attackAnimation");
-        if (Input.GetKeyDown("space"))
+    {
+        if (!ShopManager.gamePaused)
         {
-            animator.SetTrigger("attackAnimation");
+
+
+
+            animator.ResetTrigger("attackAnimation");
+            if (Input.GetKeyDown("space"))
+            {
+                animator.SetTrigger("attackAnimation");
+            }
+
+            float horizontalMovement = Input.GetAxis("Horizontal");
+            float verticalMovement = Input.GetAxis("Vertical");
+
+
+            if (Mathf.Log(Mathf.Abs(verticalMovement), 3) >= Mathf.Log(Mathf.Abs(horizontalMovement), 3)) horizontalMovement = 0;
+            else verticalMovement = 0;
+
+
+
+            if (verticalMovement != 0 || horizontalMovement != 0)
+            {
+                animator.SetFloat("yDirection", verticalMovement);
+                animator.SetFloat("xDirection", horizontalMovement);
+            }
+
+            animator.SetFloat("ySpeed", verticalMovement);
+            animator.SetFloat("xSpeed", horizontalMovement);
+
+
+
+
+            // Vector3 move = new Vector3(horizontalMovement, verticalMovement, 0) * speed * Time.deltaTime;
+            // rb.velocity = move;
+            rb.velocity = new Vector3(horizontalMovement, verticalMovement, 0) * speed;
         }
-        
-        float horizontalMovement = Input.GetAxis("Horizontal");
-        float verticalMovement = Input.GetAxis("Vertical");
-
-        
-        if (Mathf.Log(Mathf.Abs(verticalMovement),3) >= Mathf.Log(Mathf.Abs(horizontalMovement),3)) horizontalMovement = 0;
-        else verticalMovement = 0;
-      
-
-
-        if (verticalMovement != 0 || horizontalMovement != 0)
+        else
         {
-            animator.SetFloat("yDirection", verticalMovement);
-            animator.SetFloat("xDirection", horizontalMovement);
+            animator.SetFloat("ySpeed", 0);
+            animator.SetFloat("xSpeed", 0);
+            rb.velocity = Vector3.zero;
         }
-
-        animator.SetFloat("ySpeed", verticalMovement);
-        animator.SetFloat("xSpeed", horizontalMovement);
-
-
-
-
-        // Vector3 move = new Vector3(horizontalMovement, verticalMovement, 0) * speed * Time.deltaTime;
-        // rb.velocity = move;
-        rb.velocity = new Vector3(horizontalMovement, verticalMovement, 0) * speed;
     }
 
 
@@ -69,12 +81,12 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void setAttackAnimationSpeed(float animationSpeed)
+    public void setAttackAnimationSpeed(float animationSpeed)
     {
         animator.SetFloat("attackAnimationSpeed", animationSpeed);
     }
 
-    void setMovementSpeed(float movement_speed)
+    public void setMovementSpeed(float movement_speed)
     {
         this.speed = movement_speed;
         animator.SetFloat("movementAnimationSpeed", speed / 5.0f);

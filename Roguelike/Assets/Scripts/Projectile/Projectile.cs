@@ -9,14 +9,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         ILiving livingObject = collision.gameObject.transform.parent.GetComponent<ILiving>();
 
-        if (livingObject != null)
+        if (!ShopManager.gamePaused)
         {
-            livingObject.takeDamage(damage);
+            if (livingObject != null)
+            {
+                livingObject.takeDamage(damage);
+            }
         }
-
         this.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         animator.SetTrigger("hitObject");
     }

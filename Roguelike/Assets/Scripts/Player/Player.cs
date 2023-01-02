@@ -9,8 +9,8 @@ public class Player : MonoBehaviour, ILiving
 
     // begin stats
     [SerializeField] private int damage = 5;
-    [SerializeField] private int currentLife = 100;
-    [SerializeField] private int maximalLife = 100;
+    [SerializeField] private int currentLife = 10000;
+    [SerializeField] private int maximalLife = 10000;
     [SerializeField] private float attackSpeed = 1.0f;
     [SerializeField] private float movementSpeed = 1.0f;
     [SerializeField] private int damageResistance = 1;
@@ -26,28 +26,12 @@ public class Player : MonoBehaviour, ILiving
 
     void Start()
     {
-
+        pc = GetComponent<PlayerController>();
     }
 
     void Awake()
     {
-        /**
-        damage = 5;
-        currentLife = 100;
-        maximalLife = 100;
-        attackSpeed = 1.0f;
-        movementSpeed = 1.0f;
-        damageResistance = 1;
-        lifesteal = 1.0f;
-        level = 0;
-        expierence = 0;
-        levelBorder = 10;
-
-        bronze = 0;
-        silver = 0;
-        gold = 0;
-        crystal = 0;
-        */
+ 
     }
 
 
@@ -88,6 +72,7 @@ public class Player : MonoBehaviour, ILiving
     public void changeMaximalLife(int value)
     {
         maximalLife += value;
+        currentLife += value;
         if (maximalLife < 1) maximalLife = 1;
         playerUI.updateLife(currentLife,maximalLife);
     }
@@ -100,7 +85,8 @@ public class Player : MonoBehaviour, ILiving
     public void changeMovementSpeed(float value)
     {
         movementSpeed += value;
-        if (movementSpeed < 1.0f) movementSpeed = 1.0f; 
+        if (movementSpeed < 1.0f) movementSpeed = 1.0f;
+        pc.setMovementSpeed(movementSpeed);
     } 
 
     public int getDamageResistance()
@@ -137,6 +123,7 @@ public class Player : MonoBehaviour, ILiving
             level++;
             expierence = 0;
             levelBorder += 10 * level;
+            ShopManager.pauseForShop();
         }
         playerUI.updateExperience(expierence, levelBorder);
     }

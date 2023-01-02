@@ -15,8 +15,9 @@ public class SpawnerOne : MonoBehaviour
 
 
     [SerializeField] private float timeUntilNextSpawn = 0f;
-    private float spawnCooldown = 20f;
-
+    [SerializeField] private float spawnCooldown = 20f;
+    [SerializeField] private int spawnedEnemyCount = 0;
+    [SerializeField] private int numberOfSpawns = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +33,20 @@ public class SpawnerOne : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (ShopManager.gamePaused)
+        {
+            return;
+        }
+
         timeUntilNextSpawn -= Time.fixedDeltaTime;
         if (timeUntilNextSpawn <= 0.0f)
         {
-            spawn();
-            timeUntilNextSpawn = spawnCooldown;
+            int random = Random.Range(1, numberOfSpawns + 1);
+            for (int i = 0; i < random; i++)
+            {
+                spawn();
+                timeUntilNextSpawn = spawnCooldown;
+            }
         }
     }
 
@@ -65,7 +75,23 @@ public class SpawnerOne : MonoBehaviour
     {
        GameObject spawnedEnemy = Instantiate(enemy, position, Quaternion.Euler(0, 0, 0));
        spawnedEnemy.GetComponent<EnemyController>().setPlayerReference(playerReference);
+        increaseSpawnedEnemy();
     }
 
+    private void increaseSpawnedEnemy()
+    {
+        spawnedEnemyCount++;
+        if (spawnedEnemyCount % 10 == 0)
+        {
+            numberOfSpawns++;
+        }
 
+        if (spawnedEnemyCount % 7 == 0)
+        {
+            if (spawnCooldown > 6.0f)
+            {
+                spawnCooldown = spawnCooldown * 0.85f;
+            }
+        }
+    }
 }

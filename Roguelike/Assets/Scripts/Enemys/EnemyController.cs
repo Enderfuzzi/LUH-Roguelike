@@ -46,6 +46,11 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
+        if (ShopManager.gamePaused)
+        {
+            return;
+        }
+
 
         float horizontalMovement = 0;
         float verticalMovement = 0;

@@ -7,6 +7,7 @@ public class PlayerProjectileLauncher : MonoBehaviour
     [SerializeField] private GameObject projectileType;
     [SerializeField] private float projectileSpeed;
 
+
     private void launchProjectile(Vector2 spawnPosition, float rotation, Vector3 flyingDirection)
     {
         Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
