@@ -23,6 +23,7 @@ public class Player : MonoBehaviour, ILiving
     [SerializeField] private int silver = 0;
     [SerializeField] private int gold = 0;
     [SerializeField] private int crystal = 0;
+    [SerializeField] private float projectilSpeed = 700.0f;
 
     void Start()
     {
@@ -31,7 +32,12 @@ public class Player : MonoBehaviour, ILiving
 
     void Awake()
     {
- 
+        damage += PermanentStats.getDamageBoost();
+        maximalLife += PermanentStats.getHealthBoost();
+        movementSpeed += PermanentStats.getMovementBoost();
+        damageResistance += PermanentStats.getResistanceBoost();
+
+        projectilSpeed += PermanentStats.getProjectileSpeedBoost();
     }
 
 
@@ -177,5 +183,9 @@ public class Player : MonoBehaviour, ILiving
         return crystal;
     }
 
+    public float getProjectileSpeed()
+    {
+        return projectilSpeed;
+    }
 
 }

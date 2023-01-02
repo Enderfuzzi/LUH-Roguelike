@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerProjectileLauncher : MonoBehaviour
 {
     [SerializeField] private GameObject projectileType;
-    [SerializeField] private float projectileSpeed;
-
 
     private void launchProjectile(Vector2 spawnPosition, float rotation, Vector3 flyingDirection)
     {
@@ -14,7 +12,7 @@ public class PlayerProjectileLauncher : MonoBehaviour
         GameObject projectile = Instantiate(projectileType, spawnPosition, spawnRotation);
         projectile.GetComponent<Projectile>().setDamage(this.GetComponent<Player>().getDamage());
         projectile.transform.Rotate(0, 0, rotation);
-        projectile.GetComponent<Rigidbody2D>().AddRelativeForce(flyingDirection * projectileSpeed);
+        projectile.GetComponent<Rigidbody2D>().AddRelativeForce(flyingDirection * GetComponent<Player>().getProjectileSpeed());
     }
 
     public void launchDownProjectile()
