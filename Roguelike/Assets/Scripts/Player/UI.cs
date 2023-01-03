@@ -23,6 +23,7 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /**
         bronzeTextField = bronzeField.GetComponent<CollectibleUIScript>();
         silverTextField = silverField.GetComponent<CollectibleUIScript>();
         goldTextField = goldField.GetComponent<CollectibleUIScript>();
@@ -30,10 +31,19 @@ public class UI : MonoBehaviour
 
         healthTextField = healthField.GetComponent<RessourceUIScript>();
         experienceTextField = experienceField.GetComponent<RessourceUIScript>();
-       
-       }
+    */
+    }
 
-   
+    void Awake()
+    {
+        bronzeTextField = bronzeField.GetComponent<CollectibleUIScript>();
+        silverTextField = silverField.GetComponent<CollectibleUIScript>();
+        goldTextField = goldField.GetComponent<CollectibleUIScript>();
+        crystalTextField = crystalField.GetComponent<CollectibleUIScript>();
+
+        healthTextField = healthField.GetComponent<RessourceUIScript>();
+        experienceTextField = experienceField.GetComponent<RessourceUIScript>();
+    }
 
     public void updateBronze(int value)
     {

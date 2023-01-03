@@ -32,12 +32,14 @@ public class Player : MonoBehaviour, ILiving
 
     void Awake()
     {
-        damage += PermanentStats.getDamageBoost();
-        maximalLife += PermanentStats.getHealthBoost();
-        movementSpeed += PermanentStats.getMovementBoost();
-        damageResistance += PermanentStats.getResistanceBoost();
+        Debug.Log("Damage:" + PermanentStats.getDamageBoost());
+        Debug.Log("Health: " + PermanentStats.getHealthBoost());
+        changeDamage(PermanentStats.getDamageBoost());
+        changeMaximalLife(PermanentStats.getHealthBoost());
+        changeMovementSpeed(PermanentStats.getMovementBoost());
+        changeDamageResistance(PermanentStats.getResistanceBoost());
 
-        projectilSpeed += PermanentStats.getProjectileSpeedBoost();
+        changeProjectileSpeed(PermanentStats.getProjectileSpeedBoost());
     }
 
 
@@ -116,6 +118,16 @@ public class Player : MonoBehaviour, ILiving
         if (lifesteal < 0.0f) lifesteal = 0.0f;
     }
 
+    public void changeProjectileSpeed(float value)
+    {
+        projectilSpeed += value;
+    }
+
+    public float getProjectileSpeed()
+    {
+        return projectilSpeed;
+    }
+
     public int getLevel()
     {
         return level;
@@ -136,6 +148,12 @@ public class Player : MonoBehaviour, ILiving
 
     public void die()
     {
+        PermanentStats.addBronze(bronze);
+        PermanentStats.addSilver(silver);
+        PermanentStats.addGold(gold);
+        PermanentStats.addCrystal(crystal);
+
+
         Destroy(gameObject);
     }
 
@@ -182,10 +200,4 @@ public class Player : MonoBehaviour, ILiving
     {
         return crystal;
     }
-
-    public float getProjectileSpeed()
-    {
-        return projectilSpeed;
-    }
-
 }
