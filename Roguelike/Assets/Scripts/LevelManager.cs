@@ -5,32 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public void showMainMenu()
+    public static void showMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void StartLevelOne()
+    public static void StartLevelOne()
     {
         SceneManager.LoadScene("lvlOne");
     }
 
-    public void showShop()
+    public static void showShop()
     {
         SceneManager.LoadScene("ShopMenu");
     }
 
-    public void showSettings()
+    public static void showSettings()
     {
         SceneManager.LoadScene("SettingsMenu");
     }
 
-    public void showCredits()
+    public static void showCredits()
     {
         SceneManager.LoadScene("CreditsMenu");
     }
 
-    public void exit()
+    public static void showDied()
+    {
+        SceneManager.LoadScene("Died");
+    }
+
+    public static void exit()
     {
         Application.Quit();
     }

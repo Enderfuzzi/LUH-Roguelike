@@ -32,14 +32,14 @@ public class Player : MonoBehaviour, ILiving
 
     void Awake()
     {
-        Debug.Log("Damage:" + PermanentStats.getDamageBoost());
-        Debug.Log("Health: " + PermanentStats.getHealthBoost());
         changeDamage(PermanentStats.getDamageBoost());
         changeMaximalLife(PermanentStats.getHealthBoost());
         changeMovementSpeed(PermanentStats.getMovementBoost());
         changeDamageResistance(PermanentStats.getResistanceBoost());
 
         changeProjectileSpeed(PermanentStats.getProjectileSpeedBoost());
+        changeAttackSpeed(PermanentStats.getAttackSpeedBoost());
+
     }
 
 
@@ -133,6 +133,12 @@ public class Player : MonoBehaviour, ILiving
         return level;
     }
 
+    private void changeAttackSpeed(float value)
+    {
+        attackSpeed += attackSpeed * value;
+        pc.setAttackAnimationSpeed(attackSpeed);
+    }
+
     public void addExperience()
     {
         expierence++;
@@ -148,13 +154,15 @@ public class Player : MonoBehaviour, ILiving
 
     public void die()
     {
+
         PermanentStats.addBronze(bronze);
         PermanentStats.addSilver(silver);
         PermanentStats.addGold(gold);
         PermanentStats.addCrystal(crystal);
 
+        LevelManager.showDied();
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void addBronze()

@@ -15,6 +15,10 @@ public class PermanentStats : MonoBehaviour
     public const int resistanceCost = 4;
     private static int projectileSpeedBoost;
     public const int projectileSpeedCost = 6;
+    private static int attackSpeedBoost;
+    public const int attackSpeedCost = 10;
+
+
 
     //Currencies
     private static int bronze;
@@ -34,7 +38,7 @@ public class PermanentStats : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        /**
         DontDestroyOnLoad(gameObject);
         damageBoost = PlayerPrefs.GetInt("PlayerDamageBoost", 0);
         healthBoost = PlayerPrefs.GetInt("PlayerHealthBoost", 0);
@@ -47,28 +51,27 @@ public class PermanentStats : MonoBehaviour
         silver = PlayerPrefs.GetInt("CurrencySilver", 0);
         gold = PlayerPrefs.GetInt("CurrencyGold", 0);
         crystal = PlayerPrefs.GetInt("CurrencyCrystal", 0);
-    }
+        */
+     }
 
     void Awake()
     {
-        /**
         damageBoost = PlayerPrefs.GetInt("PlayerDamageBoost", 0);
         healthBoost = PlayerPrefs.GetInt("PlayerHealthBoost", 0);
         movementBoost = PlayerPrefs.GetInt("PlayerMovementBoost", 0);
         damageResistanceBoost = PlayerPrefs.GetInt("PlayerResistanceBoost", 0);
         projectileSpeedBoost = PlayerPrefs.GetInt("PlayerProjectileSpeedBoost", 0);
-
+        attackSpeedBoost = PlayerPrefs.GetInt("PlayerAttackSpeedBoost", 0);
 
         bronze = PlayerPrefs.GetInt("CurrencyBronze", 0);
         silver = PlayerPrefs.GetInt("CurrencySilver", 0);
         gold = PlayerPrefs.GetInt("CurrencyGold", 0);
         crystal = PlayerPrefs.GetInt("CurrencyCrystal", 0);
-        */
     }
 
     public static void upgradeDamage()
     {
-        if (damageBoost * damageCost <= bronze)
+        if ((damageBoost + 1) * damageCost <= bronze)
         {
             addBronze(damageBoost * damageCost * -1);
             damageBoost++;
@@ -78,7 +81,7 @@ public class PermanentStats : MonoBehaviour
 
     public static void upgradeHealth()
     {
-        if (healthBoost * healthCost <= silver)
+        if ((healthBoost + 1) * healthCost <= silver)
         {
             addSilver(healthBoost * healthCost * -1);
             healthBoost++;
@@ -88,7 +91,7 @@ public class PermanentStats : MonoBehaviour
 
     public static void upgradeMovement()
     {
-        if (movementBoost * movementCost <= crystal) {
+        if ((movementBoost + 1) * movementCost <= crystal) {
             addCrystal(movementBoost * movementCost * -1);
             movementBoost++;
             PlayerPrefs.SetInt("PlayerMovementBoost", movementBoost);
@@ -97,7 +100,7 @@ public class PermanentStats : MonoBehaviour
 
     public static void upgradeResistance()
     {
-        if (damageResistanceBoost * resistanceCost <= silver)
+        if ((damageResistanceBoost + 1) * resistanceCost <= silver)
         {
             addSilver(damageResistanceBoost * resistanceCost * -1);
             damageResistanceBoost++;
@@ -107,12 +110,22 @@ public class PermanentStats : MonoBehaviour
 
     public static void upgradeProjectileSpeed()
     {
-        if (projectileSpeedBoost * projectileSpeedCost <= gold)
+        if ((projectileSpeedBoost + 1) * projectileSpeedCost <= gold)
         {
             addGold(projectileSpeedBoost * projectileSpeedCost * -1);
             projectileSpeedBoost++;
             PlayerPrefs.SetInt("PlayerProjectileSpeedBoost", projectileSpeedBoost);
         }
+    }
+
+    public static void upgradeAttackSpeedBoost()
+    {
+        if ((attackSpeedBoost + 1) * attackSpeedCost <= bronze)
+        {
+            addBronze(attackSpeedBoost * attackSpeedCost * -1);
+            attackSpeedBoost++;
+            PlayerPrefs.SetInt("PlayerAttackSpeedBoost", attackSpeedBoost);
+        } 
     }
 
     public static int getDamageBoost()
@@ -163,6 +176,16 @@ public class PermanentStats : MonoBehaviour
     public static int getProjectileSpeedBoostLevel()
     {
         return projectileSpeedBoost;
+    }
+
+    public static float getAttackSpeedBoost()
+    {
+        return attackSpeedBoost * 0.1f;
+    }
+
+    public static int getAttackSpeedBoostLevel()
+    {
+        return attackSpeedBoost;
     }
 
     public static void addBronze(int value)
@@ -221,12 +244,14 @@ public class PermanentStats : MonoBehaviour
         movementBoost = 0;
         damageResistanceBoost = 0;
         projectileSpeedBoost = 0;
+        attackSpeedBoost = 0;
 
         PlayerPrefs.SetInt("PlayerDamageBoost", damageBoost);
         PlayerPrefs.SetInt("PlayerHealthBoost", healthBoost);
         PlayerPrefs.SetInt("PlayerMovementBoost", movementBoost);
         PlayerPrefs.SetInt("PlayerResistanceBoost", damageResistanceBoost);
         PlayerPrefs.SetInt("PlayerProjectileSpeedBoost", projectileSpeedBoost);
+        PlayerPrefs.SetInt("PlayerAttackSpeedBoost", attackSpeedBoost);
 
         addBronze(bronze * -1);
         addSilver(silver * -1);
