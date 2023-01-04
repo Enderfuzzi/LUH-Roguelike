@@ -29,7 +29,6 @@ Test Project is used for experimental test of functions and seeing how features 
 ## Character
 - Has different stats
   - HP
-  - Melee Damage
   - Magic Damage
   - Attackspeed
   - Movementspeed
