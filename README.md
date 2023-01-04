@@ -61,7 +61,7 @@ Test Project is used for experimental test of functions and seeing how features 
 [Link for 2D Tutorial](https://www.youtube.com/playlist?list=PL0m-AJLtwLv7Fe6Wj32zJIHuHk5jBUDzO) 
 - [x] implement Main menu scene
 - [x] implement Game scene
-- [ ] implement Credit scene
+- [x] implement Credit scene
 - [x] create arena for first level
 - [x] implement character movement
 - [x] implement enemy movement and spawn
