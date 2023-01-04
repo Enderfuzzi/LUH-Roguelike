@@ -36,9 +36,6 @@ Test Project is used for experimental test of functions and seeing how features 
   - Lifesteal
   - Level
   - Ressoruces
-- Melee Attack (Sword)
-- Range Attack (Magic)
-- other Abilites
 ## Credits
 ### Developers
 - Bennet Hueter
