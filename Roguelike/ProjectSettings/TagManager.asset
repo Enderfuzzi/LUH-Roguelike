@@ -24,7 +24,7 @@ TagManager:
   - Enviroment_Projectile_Hitbox
   - Player_Target
   - NoInteraction
-  - 
+  - NonWalkableByPlayer
   - 
   - 
   - 

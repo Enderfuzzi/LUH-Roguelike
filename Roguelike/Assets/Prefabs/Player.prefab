@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 7639124277227779709}
   playerUI: {fileID: 7639124277227779653}
-  damage: 200
+  damage: 10
   currentLife: 100
   maximalLife: 100
   attackSpeed: 1
@@ -299,11 +299,12 @@ MonoBehaviour:
   lifesteal: 1
   level: 0
   expierence: 0
-  levelBorder: 10
+  levelBorder: 5
   bronze: 0
   silver: 0
   gold: 0
   crystal: 0
+  projectilSpeed: 700
 --- !u!95 &7639124277227779649
 Animator:
   serializedVersion: 4
@@ -337,7 +338,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: {fileID: 1761191224659969698, guid: 5c0caf888033c3b4cac7a5ff49a329b5, type: 3}
-  projectileSpeed: 700
 --- !u!70 &7639124277227779648
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -69,10 +69,10 @@ Test Project is used for experimental test of functions and seeing how features 
 - [x] add dammage and display currents stats
 - [x] add enemy dropping loot
 - [x] add upgrades
-- [ ] implement a permanent save system for permanent upgrades and game informations
-- [ ] implement Permanent shop
+- [x] implement a permanent save system for permanent upgrades and game informations
+- [x] implement Permanent shop
 - [ ] implement settings
 - [ ] implement sound effects
 - [ ] add more content...
 Bugfixes:
-- [ ] fix enemy spawn point with movement
+- [x] fix enemy spawn point with movement

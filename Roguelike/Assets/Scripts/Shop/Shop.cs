@@ -19,7 +19,7 @@ public class Shop : MonoBehaviour
 
     public void freeDamageUpgrade()
     {
-        playerReference.changeDamage(2);
+        playerReference.changeDamage(5);
         ShopManager.unpause();
     }
 
@@ -31,7 +31,7 @@ public class Shop : MonoBehaviour
 
     public void freeMovementUpgrade()
     {
-        playerReference.changeMovementSpeed(0.5f);
+        playerReference.changeMovementSpeed(0.25f);
         ShopManager.unpause();
     }
 

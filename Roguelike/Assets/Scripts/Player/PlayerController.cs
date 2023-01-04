@@ -33,9 +33,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!ShopManager.gamePaused)
         {
-
-
-
             animator.ResetTrigger("attackAnimation");
             if (Input.GetKeyDown("space"))
             {

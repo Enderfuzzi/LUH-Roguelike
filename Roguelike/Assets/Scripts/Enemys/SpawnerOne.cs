@@ -14,10 +14,13 @@ public class SpawnerOne : MonoBehaviour
     [SerializeField] private GameObject leftSideSpawner;
 
 
-    [SerializeField] private float timeUntilNextSpawn = 0f;
-    [SerializeField] private float spawnCooldown = 20f;
-    [SerializeField] private int spawnedEnemyCount = 0;
-    [SerializeField] private int numberOfSpawns = 1;
+     private float timeUntilNextSpawn = 0f;
+     private float spawnCooldown = 10f;
+     private int spawnedEnemyCount = 0;
+     private int numberOfSpawns = 1;
+     private int lvlborder = 0;
+     private int lvlIncrease = 20;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,53 +47,60 @@ public class SpawnerOne : MonoBehaviour
             int random = Random.Range(1, numberOfSpawns + 1);
             for (int i = 0; i < random; i++)
             {
-                spawn();
+                spawn(Random.Range(0,lvlborder));
                 timeUntilNextSpawn = spawnCooldown;
             }
         }
     }
 
 
-    private void spawn()
+    private void spawn(int modifier)
     {
         int random = Random.Range(1, 5);
         switch (random)
         {
             case 1:
-                spawnEnemy(firstTopSpawner.transform.position);
+                spawnEnemy(firstTopSpawner.transform.position, modifier);
                 break;
             case 2:
-                spawnEnemy(secondTopSpawner.transform.position);
+                spawnEnemy(secondTopSpawner.transform.position, modifier);
                 break;
             case 3:
-                spawnEnemy(leftSideSpawner.transform.position);
+                spawnEnemy(leftSideSpawner.transform.position, modifier);
                 break;
             case 4:
-                spawnEnemy(rightSideSpawner.transform.position);
+                spawnEnemy(rightSideSpawner.transform.position, modifier);
                 break;
         }
     }
 
-    private void spawnEnemy(Vector3 position)
+    private void spawnEnemy(Vector3 position, int modifier)
     {
        GameObject spawnedEnemy = Instantiate(enemy, position, Quaternion.Euler(0, 0, 0));
        spawnedEnemy.GetComponent<EnemyController>().setPlayerReference(playerReference);
-        increaseSpawnedEnemy();
+       spawnedEnemy.GetComponent<SkeletonMage>().updateStatModifier(modifier);
+       increaseSpawnedEnemy();
     }
 
     private void increaseSpawnedEnemy()
     {
         spawnedEnemyCount++;
-        if (spawnedEnemyCount % 10 == 0)
+        if (numberOfSpawns < 7 && spawnedEnemyCount % 10 == 0)
         {
             numberOfSpawns++;
         }
 
-        if (spawnedEnemyCount % 7 == 0)
+        if (spawnCooldown > 5.0f && spawnedEnemyCount % 7 == 0)
         {
-            if (spawnCooldown > 6.0f)
-            {
                 spawnCooldown = spawnCooldown * 0.85f;
+        }
+
+        if (spawnedEnemyCount - lvlIncrease == 0)
+        {
+            if (lvlIncrease <= 640)
+            {
+                lvlIncrease *= 2;
+                lvlborder++;
             }
         }
     }

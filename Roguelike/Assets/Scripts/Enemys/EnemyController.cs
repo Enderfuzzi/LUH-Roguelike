@@ -15,6 +15,10 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 velocity;
 
+    private int xLock = 0;
+    private int yLock = 0;
+
+
     private float playerDisplacement = 0.65f;
     private float verticalDisplacement = 0.975f;
     private float horizontalDisplacement = 0.5f;
@@ -22,7 +26,7 @@ public class EnemyController : MonoBehaviour
     private LayerMask playerHitboxMask;
     private LayerMask projectileHitboxMask;
 
-    private bool leavedSpawn = true;
+    private bool hasLeavedSpawn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,26 +50,21 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
-        if (ShopManager.gamePaused)
-        {
-            return;
-        }
 
 
         float horizontalMovement = 0;
         float verticalMovement = 0;
  
         animator.ResetTrigger("attackAnimation");
-        if (!leavedSpawn)
+        if (!hasLeavedSpawn && !ShopManager.gamePaused)
         {
-
-
-
-
-
+            horizontalMovement = xLock;
+            verticalMovement = yLock;
         }
-        else
+        else if (!ShopManager.gamePaused)
         {
+
+
             if (!shoot())
             {
                 bool verticalPath;
@@ -76,7 +75,7 @@ public class EnemyController : MonoBehaviour
                 float verticalDistance = playerReference.transform.position.y + playerDisplacement - transform.position.y;
                 float horizontalDistance = playerReference.transform.position.x - transform.position.x;
                 //Debug.Log("Vertical Distance: " + verticalDistance);
-               // Debug.Log("Horizontal Distance: " + horizontalDistance);
+                // Debug.Log("Horizontal Distance: " + horizontalDistance);
                 //Check if both path are avaible
                 if (transform.position.y < playerReference.transform.position.y)
                 {
@@ -130,7 +129,7 @@ public class EnemyController : MonoBehaviour
                     Debug.Log("No option to Wlak");
                 }
 
-               // Debug.Log("Horizontal Path: " + horizontalPath);
+                // Debug.Log("Horizontal Path: " + horizontalPath);
                 // if both path are avaible the path with the shortest distance is chosen 
                 if (verticalPath && horizontalPath && shootableVertical && shootableHorizontal)
                 {
@@ -243,7 +242,6 @@ public class EnemyController : MonoBehaviour
         }
         //Debug.Log("Vertical Movement: " + verticalMovement);
         //Debug.Log("Horizontal Movement: " + horizontalMovement);
-
         if (verticalMovement != 0 || horizontalMovement != 0)
         {
             animator.SetFloat("yDirection", verticalMovement);
@@ -256,12 +254,12 @@ public class EnemyController : MonoBehaviour
         rb.velocity = new Vector3(horizontalMovement, verticalMovement, 0) * movementSpeed;
     }
 
-    void setAttackAnimationSpeed(float animationSpeed)
+    public void setAttackAnimationSpeed(float animationSpeed)
     {
         animator.SetFloat("attackAnimationSpeed", animationSpeed);
     }
 
-    void setMovementSpeed(float movementSpeed)
+    public void setMovementSpeed(float movementSpeed)
     {
         this.movementSpeed = movementSpeed;
         animator.SetFloat("movementAnimationSpeed", this.movementSpeed / 5.0f);
@@ -269,12 +267,26 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-
     }
 
     void Awake()
     {
-
+        if (walkable(transform.position, Vector2.up, 5.0f))
+        {
+            yLock = 1;
+        }
+        else if (walkable(transform.position, Vector2.down, 5.0f))
+        {
+            yLock = -1;
+        }
+        else if (walkable(transform.position, Vector2.right, 5.0f))
+        {
+            xLock = 1;
+        }
+        else if (walkable(transform.position, Vector2.left, 5.0f))
+        {
+            xLock = -1;
+        }
     }
 
     public void setPlayerReference(GameObject player)
@@ -282,6 +294,10 @@ public class EnemyController : MonoBehaviour
         playerReference = player;
     }
 
+    public void leavedSpawn()
+    {
+        hasLeavedSpawn = true;
+    }
 
     private bool shoot()
     {

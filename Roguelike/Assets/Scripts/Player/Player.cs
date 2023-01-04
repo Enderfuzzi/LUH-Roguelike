@@ -9,8 +9,8 @@ public class Player : MonoBehaviour, ILiving
 
     // begin stats
     [SerializeField] private int damage = 5;
-    [SerializeField] private int currentLife = 10000;
-    [SerializeField] private int maximalLife = 10000;
+    [SerializeField] private int currentLife = 100;
+    [SerializeField] private int maximalLife = 100;
     [SerializeField] private float attackSpeed = 1.0f;
     [SerializeField] private float movementSpeed = 1.0f;
     [SerializeField] private int damageResistance = 1;
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour, ILiving
 
         changeProjectileSpeed(PermanentStats.getProjectileSpeedBoost());
         changeAttackSpeed(PermanentStats.getAttackSpeedBoost());
-
+        playerUI.updateExperience(expierence, levelBorder);
     }
 
 
