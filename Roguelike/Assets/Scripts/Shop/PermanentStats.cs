@@ -73,7 +73,7 @@ public class PermanentStats : MonoBehaviour
     {
         if ((damageBoost + 1) * damageCost <= bronze)
         {
-            addBronze(damageBoost * damageCost * -1);
+            addBronze((damageBoost + 1) * damageCost * -1);
             damageBoost++;
             PlayerPrefs.SetInt("PlayerDamageBoost", damageBoost);
         }
@@ -83,7 +83,7 @@ public class PermanentStats : MonoBehaviour
     {
         if ((healthBoost + 1) * healthCost <= silver)
         {
-            addSilver(healthBoost * healthCost * -1);
+            addSilver((healthBoost + 1) * healthCost * -1);
             healthBoost++;
             PlayerPrefs.SetInt("PlayerHealthBoost", healthBoost);
         }
@@ -92,7 +92,7 @@ public class PermanentStats : MonoBehaviour
     public static void upgradeMovement()
     {
         if ((movementBoost + 1) * movementCost <= crystal) {
-            addCrystal(movementBoost * movementCost * -1);
+            addCrystal((movementBoost + 1) * movementCost * -1);
             movementBoost++;
             PlayerPrefs.SetInt("PlayerMovementBoost", movementBoost);
         }
@@ -102,7 +102,7 @@ public class PermanentStats : MonoBehaviour
     {
         if ((damageResistanceBoost + 1) * resistanceCost <= silver)
         {
-            addSilver(damageResistanceBoost * resistanceCost * -1);
+            addSilver((damageResistanceBoost + 1) * resistanceCost * -1);
             damageResistanceBoost++;
             PlayerPrefs.SetInt("PlayerResistanceBoost", damageResistanceBoost);
         }
@@ -112,7 +112,7 @@ public class PermanentStats : MonoBehaviour
     {
         if ((projectileSpeedBoost + 1) * projectileSpeedCost <= gold)
         {
-            addGold(projectileSpeedBoost * projectileSpeedCost * -1);
+            addGold((projectileSpeedBoost + 1) * projectileSpeedCost * -1);
             projectileSpeedBoost++;
             PlayerPrefs.SetInt("PlayerProjectileSpeedBoost", projectileSpeedBoost);
         }
@@ -122,7 +122,7 @@ public class PermanentStats : MonoBehaviour
     {
         if ((attackSpeedBoost + 1) * attackSpeedCost <= bronze)
         {
-            addBronze(attackSpeedBoost * attackSpeedCost * -1);
+            addBronze((attackSpeedBoost + 1) * attackSpeedCost * -1);
             attackSpeedBoost++;
             PlayerPrefs.SetInt("PlayerAttackSpeedBoost", attackSpeedBoost);
         } 
