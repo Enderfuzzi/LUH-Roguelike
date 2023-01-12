@@ -18,6 +18,9 @@ public class PermanentStats : MonoBehaviour
     private static int attackSpeedBoost;
     public const int attackSpeedCost = 10;
 
+    private static int lifestealBoost;
+    public const int lifestealCost = 10;
+
 
 
     //Currencies
@@ -26,33 +29,11 @@ public class PermanentStats : MonoBehaviour
     private static int gold;
     private static int crystal;
 
-    private static bool created = false;
 
     void Start()
     {
-        if (!created)
-        {
-            created = true; 
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        /**
-        DontDestroyOnLoad(gameObject);
-        damageBoost = PlayerPrefs.GetInt("PlayerDamageBoost", 0);
-        healthBoost = PlayerPrefs.GetInt("PlayerHealthBoost", 0);
-        movementBoost = PlayerPrefs.GetInt("PlayerMovementBoost", 0);
-        damageResistanceBoost = PlayerPrefs.GetInt("PlayerResistanceBoost", 0);
-        projectileSpeedBoost = PlayerPrefs.GetInt("PlayerProjectileSpeedBoost", 0);
-
-
-        bronze = PlayerPrefs.GetInt("CurrencyBronze", 0);
-        silver = PlayerPrefs.GetInt("CurrencySilver", 0);
-        gold = PlayerPrefs.GetInt("CurrencyGold", 0);
-        crystal = PlayerPrefs.GetInt("CurrencyCrystal", 0);
-        */
-     }
+       
+    }
 
     void Awake()
     {
@@ -62,6 +43,7 @@ public class PermanentStats : MonoBehaviour
         damageResistanceBoost = PlayerPrefs.GetInt("PlayerResistanceBoost", 0);
         projectileSpeedBoost = PlayerPrefs.GetInt("PlayerProjectileSpeedBoost", 0);
         attackSpeedBoost = PlayerPrefs.GetInt("PlayerAttackSpeedBoost", 0);
+        lifestealBoost = PlayerPrefs.GetInt("PlayerLifestealBoost", 0);
 
         bronze = PlayerPrefs.GetInt("CurrencyBronze", 0);
         silver = PlayerPrefs.GetInt("CurrencySilver", 0);
@@ -128,6 +110,16 @@ public class PermanentStats : MonoBehaviour
         } 
     }
 
+    public static void upgradeLifestealBoost()
+    {
+        if (lifestealBoost + 1 * lifestealCost <= crystal)
+        {
+            addCrystal((lifestealBoost + 1) * lifestealCost * -1);
+            lifestealBoost++;
+            PlayerPrefs.SetInt("PlayerLifestealBoost", lifestealBoost);
+        }
+    }
+
     public static int getDamageBoost()
     {
         return damageBoost * 5;
@@ -188,6 +180,16 @@ public class PermanentStats : MonoBehaviour
         return attackSpeedBoost;
     }
 
+    public static float getLifestealBoost()
+    {
+        return lifestealBoost * 0.1f;
+    }
+
+    public static int getLifestealBoostLevel()
+    {
+        return lifestealBoost;
+    }
+
     public static void addBronze(int value)
     {
         bronze += value;
@@ -245,6 +247,7 @@ public class PermanentStats : MonoBehaviour
         damageResistanceBoost = 0;
         projectileSpeedBoost = 0;
         attackSpeedBoost = 0;
+        lifestealBoost = 0;
 
         PlayerPrefs.SetInt("PlayerDamageBoost", damageBoost);
         PlayerPrefs.SetInt("PlayerHealthBoost", healthBoost);
@@ -252,6 +255,7 @@ public class PermanentStats : MonoBehaviour
         PlayerPrefs.SetInt("PlayerResistanceBoost", damageResistanceBoost);
         PlayerPrefs.SetInt("PlayerProjectileSpeedBoost", projectileSpeedBoost);
         PlayerPrefs.SetInt("PlayerAttackSpeedBoost", attackSpeedBoost);
+        PlayerPrefs.SetInt("PlayerLifestealBoost", lifestealBoost);
 
         addBronze(bronze * -1);
         addSilver(silver * -1);
@@ -269,4 +273,5 @@ public class PermanentStats : MonoBehaviour
     {
         save();
     }
+
 }

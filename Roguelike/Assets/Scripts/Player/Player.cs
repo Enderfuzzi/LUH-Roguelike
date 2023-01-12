@@ -8,16 +8,16 @@ public class Player : MonoBehaviour, ILiving
     [SerializeField] UI playerUI;
 
     // begin stats
-    [SerializeField] private int damage = 5;
-    [SerializeField] private int currentLife = 100;
+    private int damage = 5;
+    private int currentLife = 100;
     [SerializeField] private int maximalLife = 100;
-    [SerializeField] private float attackSpeed = 1.0f;
-    [SerializeField] private float movementSpeed = 1.0f;
-    [SerializeField] private int damageResistance = 1;
-    [SerializeField] private float lifesteal = 1.0f;
-    [SerializeField] private int level = 0;
-    [SerializeField] private int expierence = 0;
-    [SerializeField] private int levelBorder = 10;
+    private float attackSpeed = 1.0f;
+    private float movementSpeed = 5.0f;
+    private int damageResistance = 1;
+    private float lifesteal = 0.5f;
+    private int level = 0;
+    private int expierence = 0;
+    private int levelBorder = 10;
 
     [SerializeField] private int bronze = 0;
     [SerializeField] private int silver = 0;
@@ -27,9 +27,19 @@ public class Player : MonoBehaviour, ILiving
 
     void Start()
     {
+        changeDamage(PermanentStats.getDamageBoost());
+        changeMaximalLife(PermanentStats.getHealthBoost());
+        changeMovementSpeed(PermanentStats.getMovementBoost());
+        changeDamageResistance(PermanentStats.getResistanceBoost());
+
+        changeProjectileSpeed(PermanentStats.getProjectileSpeedBoost());
+        changeAttackSpeed(PermanentStats.getAttackSpeedBoost());
+        changeLifesteal(PermanentStats.getLifestealBoost());
+
+        playerUI.updateExperience(expierence, levelBorder);
         pc = GetComponent<PlayerController>();
     }
-
+    /**
     void Awake()
     {
         changeDamage(PermanentStats.getDamageBoost());
@@ -39,10 +49,12 @@ public class Player : MonoBehaviour, ILiving
 
         changeProjectileSpeed(PermanentStats.getProjectileSpeedBoost());
         changeAttackSpeed(PermanentStats.getAttackSpeedBoost());
+        changeLifesteal(PermanentStats.getLifestealBoost());
+
         playerUI.updateExperience(expierence, levelBorder);
     }
 
-
+    */
     public int getDamage()
     {
         return damage;
@@ -105,6 +117,11 @@ public class Player : MonoBehaviour, ILiving
     public void changeDamageResistance(int value)
     {
         damageResistance += value;
+    }
+
+    public void makeDamage(int value)
+    {
+        changeCurrentLife((int) (value * lifesteal));
     }
 
     public float getLifeSteal()

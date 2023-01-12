@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnerOne : MonoBehaviour
 {
-
     [SerializeField] private GameObject playerReference;
     [SerializeField] private GameObject enemy;
 

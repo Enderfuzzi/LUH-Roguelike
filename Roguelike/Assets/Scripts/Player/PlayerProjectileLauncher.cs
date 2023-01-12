@@ -11,6 +11,7 @@ public class PlayerProjectileLauncher : MonoBehaviour
         Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
         GameObject projectile = Instantiate(projectileType, spawnPosition, spawnRotation);
         projectile.GetComponent<Projectile>().setDamage(this.GetComponent<Player>().getDamage());
+        projectile.GetComponent<Projectile>().setPlayer(this.GetComponent<Player>());
         projectile.transform.Rotate(0, 0, rotation);
         projectile.GetComponent<Rigidbody2D>().AddRelativeForce(flyingDirection * GetComponent<Player>().getProjectileSpeed());
     }

@@ -6,6 +6,9 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] public Animator animator;
     [SerializeField] private int damage = 0;
+    [SerializeField] private Player player = null;
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,6 +20,12 @@ public class Projectile : MonoBehaviour
             {
                 livingObject.takeDamage(damage);
             }
+
+            if (player != null)
+            {
+                player.makeDamage(damage);
+            }
+
         }
         this.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         animator.SetTrigger("hitObject");
@@ -27,9 +36,15 @@ public class Projectile : MonoBehaviour
         this.damage = value;
     }
 
+    public void setPlayer(Player player)
+    {
+        this.player = player;   
+    }
+
+
     public void DestroyAfterImpact()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         Destroy(gameObject);
     }
 
