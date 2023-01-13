@@ -7,7 +7,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] public Animator animator;
     [SerializeField] private int damage = 0;
     [SerializeField] private Player player = null;
-
+    private Vector3 relativeForce;
+    private bool wasPaused = false;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +42,30 @@ public class Projectile : MonoBehaviour
         this.player = player;   
     }
 
+    public void setRelativeForce(Vector3 value)
+    {
+        relativeForce = value;
+    }
+    void Start()
+    {
+        this.GetComponent<Rigidbody2D>().freezeRotation = true;
+    }
+
+    void FixedUpdate()
+    {
+        if (ShopManager.gamePaused && !wasPaused)
+        {
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            animator.enabled = false;
+            wasPaused = true;
+        }
+        else if (!ShopManager.gamePaused && wasPaused)
+        {
+            this.GetComponent<Rigidbody2D>().AddRelativeForce(relativeForce);
+            animator.enabled = true;
+            wasPaused = false;
+        }
+    }
 
     public void DestroyAfterImpact()
     {

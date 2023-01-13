@@ -17,7 +17,7 @@ public class Player : MonoBehaviour, ILiving
     private float lifesteal = 0.5f;
     private int level = 0;
     private int expierence = 0;
-    private int levelBorder = 10;
+    private int levelBorder = 3;
 
     [SerializeField] private int bronze = 0;
     [SerializeField] private int silver = 0;
@@ -163,7 +163,7 @@ public class Player : MonoBehaviour, ILiving
         {
             level++;
             expierence = 0;
-            levelBorder += 10 * level;
+            levelBorder += 1 * level;
             ShopManager.pauseForShop();
         }
         playerUI.updateExperience(expierence, levelBorder);

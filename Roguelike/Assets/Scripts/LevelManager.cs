@@ -8,11 +8,13 @@ public class LevelManager : MonoBehaviour
     public static void showMainMenu()
     {
         Time.timeScale = 1;
+        MenuSound.inMenu = true;
         SceneManager.LoadScene("MainMenu");
     }
 
     public static void StartLevelOne()
     {
+        MenuSound.inMenu = false;
         SceneManager.LoadScene("lvlOne");
     }
 

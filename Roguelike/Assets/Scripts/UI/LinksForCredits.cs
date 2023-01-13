@@ -44,6 +44,11 @@ public class LinksForCredits : MonoBehaviour
         Application.OpenURL("https://assetstore.unity.com/packages/2d/gui/icons/free-minerals-pixel-art-icons-196216");
     }
 
+    public static void musicMainMenu()
+    {
+        Application.OpenURL("https://opengameart.org/content/hopping-harmony");
+    }
+
     public static void openGameart()
     {
         Application.OpenURL("https://opengameart.org/");

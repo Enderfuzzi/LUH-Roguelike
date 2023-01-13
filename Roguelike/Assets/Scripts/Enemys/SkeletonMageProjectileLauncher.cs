@@ -23,6 +23,7 @@ public class SkeletonMageProjectileLauncher : MonoBehaviour
         projectile.GetComponent<Projectile>().setDamage(this.GetComponent<SkeletonMage>().getDamage());
         projectile.transform.Rotate(0, 0, rotation);
         projectile.GetComponent<Rigidbody2D>().AddRelativeForce(flyingDirection * projectileSpeed);
+        projectile.GetComponent<Projectile>().setRelativeForce(flyingDirection * projectileSpeed);
     }
 
     public void launchDownProjectile()
