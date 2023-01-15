@@ -10,9 +10,6 @@ public class SkeletonMageProjectileLauncher : MonoBehaviour
     [SerializeField] private GameObject right;
     [SerializeField] private GameObject left;
 
-
-
-
     [SerializeField] private GameObject projectileType;
     [SerializeField] private float projectileSpeed;
 
@@ -23,7 +20,6 @@ public class SkeletonMageProjectileLauncher : MonoBehaviour
         projectile.GetComponent<Projectile>().setDamage(this.GetComponent<SkeletonMage>().getDamage());
         projectile.transform.Rotate(0, 0, rotation);
         projectile.GetComponent<Rigidbody2D>().AddRelativeForce(flyingDirection * projectileSpeed);
-        projectile.GetComponent<Projectile>().setRelativeForce(flyingDirection * projectileSpeed);
     }
 
     public void launchDownProjectile()

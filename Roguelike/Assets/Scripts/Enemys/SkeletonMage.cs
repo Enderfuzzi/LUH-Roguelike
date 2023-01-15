@@ -110,8 +110,6 @@ public class SkeletonMage : MonoBehaviour, ILiving
             Instantiate(experience, randomVector(), Quaternion.Euler(0, 0, 0));
         }
 
-
-
         int random = Random.Range(1, 101);
         if (random <= 50)
         {

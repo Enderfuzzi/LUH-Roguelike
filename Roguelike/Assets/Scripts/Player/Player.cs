@@ -178,8 +178,6 @@ public class Player : MonoBehaviour, ILiving
         PermanentStats.addCrystal(crystal);
 
         LevelManager.showDied();
-
-        //Destroy(gameObject);
     }
 
     public void addBronze()

@@ -49,8 +49,6 @@ public class PermanentStats : MonoBehaviour
         silver = PlayerPrefs.GetInt("CurrencySilver", 0);
         gold = PlayerPrefs.GetInt("CurrencyGold", 0);
         crystal = PlayerPrefs.GetInt("CurrencyCrystal", 0);
-
-        silver = 20;
     }
 
     public static void upgradeDamage()

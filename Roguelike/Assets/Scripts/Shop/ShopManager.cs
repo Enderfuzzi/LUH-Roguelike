@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
     {
         shopPause = true;
         gamePaused = true;
+        Time.timeScale = 0;
     }
 
     public static void unpause()
@@ -29,14 +30,10 @@ public class ShopManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    void FixedUpdate()
-    {
-        shop.SetActive(gamePaused);
-    }
-
 
     void Update()
     {
+        shop.SetActive(shopPause);
         if (!shopPause)
         {
             if (Input.GetKeyDown(KeyCode.Escape))

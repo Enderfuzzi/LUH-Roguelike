@@ -14,7 +14,6 @@ public class PlayerProjectileLauncher : MonoBehaviour
         projectile.GetComponent<Projectile>().setPlayer(this.GetComponent<Player>());
         projectile.transform.Rotate(0, 0, rotation);
         projectile.GetComponent<Rigidbody2D>().AddRelativeForce(flyingDirection * GetComponent<Player>().getProjectileSpeed());
-        projectile.GetComponent<Projectile>().setRelativeForce(flyingDirection * GetComponent<Player>().getProjectileSpeed());
     }
 
     public void launchDownProjectile()
