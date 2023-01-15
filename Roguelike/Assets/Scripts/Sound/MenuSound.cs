@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class MenuSound : MonoBehaviour
 {
-    public bool first = true;
+    public static bool first = true;
     public static bool inMenu = true;
     private static bool running = false;
     [SerializeField] private AudioSource menuSound;
@@ -19,6 +19,7 @@ public class MenuSound : MonoBehaviour
             first = false;
             Debug.Log(PlayerPrefs.GetFloat("MusicVolume", 5f));
             audioMixer.SetFloat("Music", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 5f)) * 20);
+            audioMixer.SetFloat("Effects", Mathf.Log10(PlayerPrefs.GetFloat("SoundEffectVolume", 5f)) * 20);
         }
         else
         {

@@ -49,6 +49,11 @@ public class LinksForCredits : MonoBehaviour
         Application.OpenURL("https://opengameart.org/content/hopping-harmony");
     }
 
+    public static void buttonSound()
+    {
+        Application.OpenURL("https://opengameart.org/content/menu-selection-click");
+    }
+
     public static void openGameart()
     {
         Application.OpenURL("https://opengameart.org/");

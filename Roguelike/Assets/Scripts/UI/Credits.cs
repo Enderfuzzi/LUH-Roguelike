@@ -15,7 +15,7 @@ public class Credits : MonoBehaviour
     {
         transform.position += Vector3.left * Screen.width / 1000.0f;
         Debug.Log("Position: " + transform.position);
-        if (transform.position.x <= -1590.0f)
+        if (transform.position.x <= -1790.0f)
         {
             transform.position = initalPosition;
         }
