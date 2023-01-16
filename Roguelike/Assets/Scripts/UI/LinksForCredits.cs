@@ -54,6 +54,17 @@ public class LinksForCredits : MonoBehaviour
         Application.OpenURL("https://opengameart.org/content/menu-selection-click");
     }
 
+    public static void LevelUpSound()
+    {
+        Application.OpenURL("https://opengameart.org/content/completion-sound");
+    }
+
+    public static void deathSound()
+    {
+        Application.OpenURL("https://opengameart.org/content/game-over-theme");
+    }
+
+
     public static void openGameart()
     {
         Application.OpenURL("https://opengameart.org/");

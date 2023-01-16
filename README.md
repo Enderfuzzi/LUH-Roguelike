@@ -49,6 +49,10 @@ Test Project is used for experimental test of functions and seeing how features 
 - Spell Animations [Spell Animation Spritesheets](https://opengameart.org/content/spell-animation-spritesheets) by Viktor Hahn (Viktor.Hahn@web.de) [^2]
 - Enemys [[LPC] Medival fantasy Character Sprites](https://opengameart.org/content/lpc-medieval-fantasy-character-sprites) by wulax [^2]
 - Dropable Ressources: [Free Minerals Pixel Art Icons](https://assetstore.unity.com/packages/2d/gui/icons/free-minerals-pixel-art-icons-196216) by CraftPix
+- Main Menu Sound: [Hopping Harmony](https://opengameart.org/content/hopping-harmony) by Magnesus Credit: Tomasz Kucza [^2]
+- Button Sound: [Menu Click Sound](https://opengameart.org/content/menu-selection-click) by NenadSimic [^2]
+
+
 [^1]: Modified for usage
 [^2]: Link for [opengameart.org](https://opengameart.org/)
 ## Licence

@@ -18,17 +18,16 @@ public class Projectile : MonoBehaviour
             if (livingObject != null)
             {
                 livingObject.takeDamage(damage);
-            }
-
-            if (player != null)
-            {
-                player.makeDamage(damage);
+                if (player != null)
+                {
+                    player.makeDamage(damage);
+                }
             }
 
         }
-        this.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
+        this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         animator.SetTrigger("hitObject");
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 1);
     }
 
     public void setDamage(int value)
