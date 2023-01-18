@@ -6,9 +6,9 @@ public class Credits : MonoBehaviour
 {
     private Vector3 initalPosition;
     private float creditsWidth;
+    public bool reset = false;
 
-
-    void Start()
+    void Awake()
     {
         initalPosition = transform.position;
         creditsWidth = GetComponent<RectTransform>().rect.width;
@@ -17,10 +17,12 @@ public class Credits : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += Vector3.left * Screen.width / 1000.0f;
-        Debug.Log("Position: " + transform.position);
-        if (transform.position.x <= initalPosition.x - creditsWidth - Screen.width)
+        Debug.Log("current Position: " + transform.position);
+        Debug.Log("Target: " + (transform.position.x + creditsWidth));
+        if (reset)
         {
             transform.position = initalPosition;
+            reset = false;
         }
     }
 }

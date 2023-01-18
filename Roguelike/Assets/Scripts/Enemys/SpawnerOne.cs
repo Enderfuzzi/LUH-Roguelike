@@ -18,20 +18,7 @@ public class SpawnerOne : MonoBehaviour
      private int spawnedEnemyCount = 0;
      private int numberOfSpawns = 1;
      private int lvlborder = 0;
-     private int lvlIncrease = 20;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+     private int lvlIncrease = 5;
 
     void FixedUpdate()
     {
@@ -77,7 +64,7 @@ public class SpawnerOne : MonoBehaviour
     {
        GameObject spawnedEnemy = Instantiate(enemy, position, Quaternion.Euler(0, 0, 0));
        spawnedEnemy.GetComponent<EnemyController>().setPlayerReference(playerReference);
-       spawnedEnemy.GetComponent<SkeletonMage>().updateStatModifier(modifier);
+       spawnedEnemy.GetComponent<SkeletonMage>().updateLevel(modifier);
        increaseSpawnedEnemy();
     }
 
@@ -98,7 +85,7 @@ public class SpawnerOne : MonoBehaviour
         {
             if (lvlIncrease <= 640)
             {
-                lvlIncrease *= 2;
+                lvlIncrease += Mathf.RoundToInt(lvlIncrease / 2);
                 lvlborder++;
             }
         }

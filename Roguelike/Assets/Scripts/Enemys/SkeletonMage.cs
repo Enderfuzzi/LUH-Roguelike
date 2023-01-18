@@ -13,7 +13,8 @@ public class SkeletonMage : MonoBehaviour, ILiving
     private float movementSpeed = 5.0f;
     private int damageResistance = 1;
 
-    private int statModifier = 0;
+    private float lvlModifier = 0.3f;
+    private int level = 0;
 
     //Drops
     [SerializeField] private GameObject bronze;
@@ -33,16 +34,16 @@ public class SkeletonMage : MonoBehaviour, ILiving
         changeCurrentLife(-1 * (value - 1));
     }
 
-    public void updateStatModifier(int value)
+    public void updateLevel(int value)
     {
         if (value > 0)
         {
-            statModifier = value;
-            changeDamage(5 * statModifier);
-            changeMaximalLife(10 * statModifier);
-            changeMovementspeed(statModifier);
-            changeAttackSpeed(statModifier);
-            changeDamageResistance(2 * statModifier);
+            level = value;
+            changeDamage(Mathf.RoundToInt(5 * lvlModifier * level));
+            changeMaximalLife(Mathf.RoundToInt(10 * lvlModifier * level));
+            changeMovementspeed(Mathf.RoundToInt(1 * lvlModifier * level));
+            changeAttackSpeed(Mathf.RoundToInt(1 * lvlModifier * level));
+            changeDamageResistance(Mathf.RoundToInt(2 * lvlModifier * level));
         } 
     }
 
@@ -103,7 +104,7 @@ public class SkeletonMage : MonoBehaviour, ILiving
 
     public void die()
     {
-        int experienceAmount = Random.Range(1, 4) + 2 * statModifier;
+        int experienceAmount = Random.Range(1, 4) + level;
         Debug.Log("Experience: " + experienceAmount);
         for (int i = 0;i < experienceAmount; i++)
         {
@@ -139,9 +140,8 @@ public class SkeletonMage : MonoBehaviour, ILiving
                 Instantiate(crystal, randomVector(), Quaternion.Euler(0, 0, 0));
             }
         }
-
+        Destroy(gameObject, 5);
         gameObject.SetActive(false);
-        Destroy(gameObject, 10);
     }
 
 

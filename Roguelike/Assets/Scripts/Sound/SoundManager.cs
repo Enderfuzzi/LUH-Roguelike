@@ -15,9 +15,8 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        soundMusicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
-        soundEffectSlider.value = PlayerPrefs.GetFloat("SoundEffectVolume", 0.5f);
-        Debug.Log(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
+        soundMusicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 5f);
+        soundEffectSlider.value = PlayerPrefs.GetFloat("SoundEffectVolume", 5f);
         setEffectVolume(soundEffectSlider.value);
         setMusicVolume(soundMusicSlider.value);
         
