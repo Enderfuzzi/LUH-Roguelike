@@ -43,9 +43,12 @@ public class PlayerController : MonoBehaviour
             float verticalMovement = Input.GetAxis("Vertical");
 
 
+            if (Mathf.Abs(verticalMovement) > Mathf.Abs(horizontalMovement)) horizontalMovement = 0;
+            else verticalMovement = 0;
+            /**
             if (Mathf.Log(Mathf.Abs(verticalMovement), 3) >= Mathf.Log(Mathf.Abs(horizontalMovement), 3)) horizontalMovement = 0;
             else verticalMovement = 0;
-
+            */
 
 
             if (verticalMovement != 0 || horizontalMovement != 0)

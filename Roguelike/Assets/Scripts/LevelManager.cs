@@ -9,12 +9,14 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1;
         MenuSound.inMenu = true;
+        LvlOneSound.inGame = false;
         SceneManager.LoadScene("MainMenu");
     }
 
     public static void StartLevelOne()
     {
         MenuSound.inMenu = false;
+        LvlOneSound.inGame = true;
         SceneManager.LoadScene("lvlOne");
     }
 
@@ -35,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
     public static void showDied()
     {
+        LvlOneSound.inGame = false;
         SceneManager.LoadScene("Died");
     }
 

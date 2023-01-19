@@ -51,7 +51,10 @@ Test Project is used for experimental test of functions and seeing how features 
 - Dropable Ressources: [Free Minerals Pixel Art Icons](https://assetstore.unity.com/packages/2d/gui/icons/free-minerals-pixel-art-icons-196216) by CraftPix
 - Main Menu Sound: [Hopping Harmony](https://opengameart.org/content/hopping-harmony) by Magnesus Credit: Tomasz Kucza [^2]
 - Button Sound: [Menu Click Sound](https://opengameart.org/content/menu-selection-click) by NenadSimic [^2]
+- Level Up Sound: [Completion sound](https://opengameart.org/content/completion-sound) by Brandon Morris (Submitted by HaelDB) [^2]
+- Death Sound: [Game Over Theme](https://opengameart.org/content/game-over-theme) by [Cleyton Kauffman](https://soundcloud.com/cleytonkauffman) [^2]
 
+- Battle Music: [Egipet Battle Music](https://opengameart.org/content/egipet-battle-music) [^2] by Alex_089
 
 [^1]: Modified for usage
 [^2]: Link for [opengameart.org](https://opengameart.org/)
