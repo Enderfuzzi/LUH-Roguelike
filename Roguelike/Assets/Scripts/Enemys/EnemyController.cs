@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] public Rigidbody2D rb;
 
-    [SerializeField] private float movementSpeed = 5.0f;
+    [SerializeField] private float movementSpeed = 2.0f;
     [SerializeField] private float attackAnimationSpeed = 1.0f;
 
     [SerializeField] public Animator animator;

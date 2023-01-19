@@ -8,7 +8,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] public static bool gamePaused = false;
-    [SerializeField] private static bool shopPause = false;
+    [SerializeField] public static bool shopPause = false;
 
     public static void pause()
     {

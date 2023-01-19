@@ -15,9 +15,10 @@ git checkout <name> # changes work dir to that branch
 git merge <name> # merges local braches into master
 ```
 ## General Information
-Test Project is used for experimental test of functions and seeing how features works. it is used due to a bad prject structure in folders.
+Test Project is used for experimental test of functions and seeing how features works. it is used due to a bad project structure in folders.
 ## General Idea
 - Hack and Slay game in a arena
+- Only vertival and Horizontal movement is allowed 
 ## Goals of the Game
 - Survive
 - Collect loot and XP from slayed enemies
@@ -29,7 +30,7 @@ Test Project is used for experimental test of functions and seeing how features 
 ## Character
 - Has different stats
   - HP
-  - Magic Damage
+  - Damage
   - Attackspeed
   - Movementspeed
   - Armor
@@ -38,7 +39,6 @@ Test Project is used for experimental test of functions and seeing how features 
   - Ressoruces
 ## Credits
 ### Developers
-- Bennet Hueter
 - Ole Brenner
 ### Used Ressources
 - Enviroment: [Rogue Fantasy Castle](https://assetstore.unity.com/packages/2d/environments/rogue-fantasy-castle-164725) by Szadi Art.
@@ -53,8 +53,8 @@ Test Project is used for experimental test of functions and seeing how features 
 - Button Sound: [Menu Click Sound](https://opengameart.org/content/menu-selection-click) by NenadSimic [^2]
 - Level Up Sound: [Completion sound](https://opengameart.org/content/completion-sound) by Brandon Morris (Submitted by HaelDB) [^2]
 - Death Sound: [Game Over Theme](https://opengameart.org/content/game-over-theme) by [Cleyton Kauffman](https://soundcloud.com/cleytonkauffman) [^2]
-
-- Battle Music: [Egipet Battle Music](https://opengameart.org/content/egipet-battle-music) [^2] by Alex_089
+- Battle Music: [Egipet Battle Music](https://opengameart.org/content/egipet-battle-music) by Alex_089 [^2]
+- Shop Background Music: [Free Music background (looping)](https://opengameart.org/content/free-music-background-looping) by Ali Hraich [^2]
 
 [^1]: Modified for usage
 [^2]: Link for [opengameart.org](https://opengameart.org/)
@@ -74,8 +74,10 @@ Test Project is used for experimental test of functions and seeing how features 
 - [x] add upgrades
 - [x] implement a permanent save system for permanent upgrades and game informations
 - [x] implement Permanent shop
-- [ ] implement settings
-- [ ] implement sound effects
+- [x] implement settings
+- [x] implement sound effects
 - [ ] add more content...
 Bugfixes:
 - [x] fix enemy spawn point with movement
+- [ ] fix that player can shot and walk
+- [ ] fix that enemey  can shot and walk

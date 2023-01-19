@@ -271,13 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31e65b767b072149a4070de4a4b0552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  currentLife: 10
-  maximalLife: 10
-  attackSpeed: 1
-  movementSpeed: 5
-  damageResistance: 1
-  statModifier: 1
   bronze: {fileID: 989332370321221922, guid: 4cab7773e55c4ed47840aac23068e9cd, type: 3}
   silver: {fileID: 5198619988185676324, guid: 2b2eff8ea14c1ff4d890af0adce8c572, type: 3}
   gold: {fileID: 8347859847503476343, guid: 9b156a0ad1305ba48955c5bdf41875f7, type: 3}

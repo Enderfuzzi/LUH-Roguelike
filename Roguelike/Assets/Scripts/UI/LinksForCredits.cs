@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LinksForCredits : MonoBehaviour
 {
+    // This section is hardcoded to prevent String manipulation
+
     public static void openEnviroment()
     {
         Application.OpenURL("https://assetstore.unity.com/packages/2d/environments/rogue-fantasy-castle-164725");
@@ -69,4 +71,15 @@ public class LinksForCredits : MonoBehaviour
     {
         Application.OpenURL("https://opengameart.org/");
     }
+
+    public static void battleMusic()
+    {
+        Application.OpenURL("https://opengameart.org/content/egipet-battle-music");
+    }
+
+    public static void shopMusic()
+    {
+        Application.OpenURL("https://opengameart.org/content/free-music-background-looping");
+    }
+
 }

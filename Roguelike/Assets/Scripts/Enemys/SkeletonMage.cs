@@ -10,7 +10,7 @@ public class SkeletonMage : MonoBehaviour, ILiving
     private int currentLife = 20;
     private int maximalLife = 20;
     private float attackSpeed = 1.0f;
-    private float movementSpeed = 5.0f;
+    private float movementSpeed = 2.0f;
     private int damageResistance = 1;
 
     private float lvlModifier = 0.3f;
@@ -40,8 +40,8 @@ public class SkeletonMage : MonoBehaviour, ILiving
         {
             level = value;
             changeDamage(Mathf.RoundToInt(5 * lvlModifier * level));
-            changeMaximalLife(Mathf.RoundToInt(10 * lvlModifier * level));
-            changeMovementspeed(Mathf.RoundToInt(1 * lvlModifier * level));
+            changeMaximalLife(Mathf.RoundToInt(15 * lvlModifier * level));
+            changeMovementspeed(0.5f * lvlModifier * level);
             changeAttackSpeed(Mathf.RoundToInt(1 * lvlModifier * level));
             changeDamageResistance(Mathf.RoundToInt(2 * lvlModifier * level));
         } 

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour, ILiving
     // begin stats
     private int damage = 5;
     private int currentLife = 100;
-    [SerializeField] private int maximalLife = 100;
+    private int maximalLife = 100;
     private float attackSpeed = 1.0f;
     private float movementSpeed = 5.0f;
     private int damageResistance = 1;
@@ -19,11 +19,11 @@ public class Player : MonoBehaviour, ILiving
     private int expierence = 0;
     private int levelBorder = 3;
 
-    [SerializeField] private int bronze = 0;
-    [SerializeField] private int silver = 0;
-    [SerializeField] private int gold = 0;
-    [SerializeField] private int crystal = 0;
-    [SerializeField] private float projectilSpeed = 700.0f;
+    private int bronze = 0;
+    private int silver = 0;
+    private int gold = 0;
+    private int crystal = 0;
+    private float projectilSpeed = 700.0f;
 
     void Start()
     {
@@ -39,22 +39,6 @@ public class Player : MonoBehaviour, ILiving
         playerUI.updateExperience(expierence, levelBorder);
         pc = GetComponent<PlayerController>();
     }
-    /**
-    void Awake()
-    {
-        changeDamage(PermanentStats.getDamageBoost());
-        changeMaximalLife(PermanentStats.getHealthBoost());
-        changeMovementSpeed(PermanentStats.getMovementBoost());
-        changeDamageResistance(PermanentStats.getResistanceBoost());
-
-        changeProjectileSpeed(PermanentStats.getProjectileSpeedBoost());
-        changeAttackSpeed(PermanentStats.getAttackSpeedBoost());
-        changeLifesteal(PermanentStats.getLifestealBoost());
-
-        playerUI.updateExperience(expierence, levelBorder);
-    }
-
-    */
     public int getDamage()
     {
         return damage;
