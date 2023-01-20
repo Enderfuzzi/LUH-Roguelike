@@ -15,14 +15,27 @@ git checkout <name> # changes work dir to that branch
 git merge <name> # merges local braches into master
 ```
 ## General Information
-Test Project is used for experimental test of functions and seeing how features works. it is used due to a bad project structure in folders.
+This Project has not a real title. I call it "Magic Fighter". Its my first usage of Unity and its components.
+The game has a few known bugs with enemy movements. Furthermore the code could be heavily optimized in structure and repition.
+
+My Goals: 
+- create a walkable area with hitboxes
+- create a character which can be moved by player
+- get a feeling for hitboxes and how collission works
+- understanding of how textures work in a top-down game
+- creating projectiles which are moving to the screen
+- understanding of how animations works with different stages
+- understanding of how raycasts can be used to determine enemy actions and movement
+
 ## General Idea
-- Hack and Slay game in a arena
+- Inital Idea: Hack and Slay game in a arena
+- Interested in Roguelikes: Hades, Brotato, 20 Minutes Till Dawn  
 - Only vertival and Horizontal movement is allowed 
+- Only vertical and Horizontal shooting is allowed
 ## Goals of the Game
 - Survive
 - Collect loot and XP from slayed enemies
-- Upgrade weapons and stats to become even more powerful
+- Upgrade stats to become even more powerful
 ## Graphics
 - 2D
 - Top-Down
@@ -36,11 +49,13 @@ Test Project is used for experimental test of functions and seeing how features 
   - Armor
   - Lifesteal
   - Level
-  - Ressoruces
+  - Ressources
 ## Credits
 ### Developers
 - Ole Brenner
+Note: My partner decided to redo this modul later. He did not participate in the planning and creation of the project.
 ### Used Ressources
+All rights are by the creator of the ressources. I do not own any of the linked ressources. Modifications are marked.
 - Enviroment: [Rogue Fantasy Castle](https://assetstore.unity.com/packages/2d/environments/rogue-fantasy-castle-164725) by Szadi Art.
 - Living creatures: [Roguelike Dungeon Asset Bundle](https://trevor-pupkin.itch.io/roguelike-dungeon-asset-bundle) by Pupkin
 - Font: [Bubble Font (Free Version)](https://assetstore.unity.com/packages/2d/fonts/bubble-font-free-version-24987) by Jazz Create Games
@@ -58,8 +73,12 @@ Test Project is used for experimental test of functions and seeing how features 
 
 [^1]: Modified for usage
 [^2]: Link for [opengameart.org](https://opengameart.org/)
+
+
 ## Licence
-"Sample text"
+This project is only build for educational reasons especially this project is not build for commercial purposes or beeing published in any larger enviroment than for correcting, evaluating or presentation. Its is allowed to be distributed with this contex within the Leibniz University Hannover. Furthermore it is allowed to show this project as exsample for later courses. <br>
+
+For further restribution, other usages or questions feel free to ask: ole.brenner@stud.uni-hannover.de
 ## To do List
 [Link for 2D Tutorial](https://www.youtube.com/playlist?list=PL0m-AJLtwLv7Fe6Wj32zJIHuHk5jBUDzO) 
 - [x] implement Main menu scene
@@ -68,7 +87,6 @@ Test Project is used for experimental test of functions and seeing how features 
 - [x] create arena for first level
 - [x] implement character movement
 - [x] implement enemy movement and spawn
-- [x] add first attack of player and enemys
 - [x] add dammage and display currents stats
 - [x] add enemy dropping loot
 - [x] add upgrades
