@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349.3334
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 35
+  controlID: 23
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 600
     height: 1299.3334
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 456
     height: 826.6667
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 36
+  controlID: 24
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 37
+  controlID: 25
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 1504
     height: 826.6667
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -309,7 +309,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 53794
+  m_LastSelectedObjectID: 53284
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -386,22 +386,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Player
+    - Assets/Scripts/Enemys
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/Scripts/Player
+  - Assets/Scripts/Enemys
   m_LastFoldersGridSize: 60
   m_LastProjectPath: "R:\\Studium\\3. Semester\\Einf\xFChrung in die Spieleentwicklung\\LUH-Roguelike\\Roguelike"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 128.33331}
-    m_SelectedIDs: e8750000
-    m_LastClickedID: 30184
-    m_ExpandedIDs: 00000000bc750000be750000c0750000c2750000c4750000de750000e075000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 64780000
+    m_LastClickedID: 30820
+    m_ExpandedIDs: 000000003a7800003c7800003e780000407800004278000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -429,7 +429,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000bc750000be750000c0750000c2750000c4750000
+    m_ExpandedIDs: 000000003a7800003c7800003e7800004078000042780000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -559,7 +559,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3c0dffff860dffff6610ffffaa10ffff1411ffff6411ffff0e12ffff7a12ffffd412ffff0616ffff6617ffffb417ffff981affffe01affff4e1bffffa21bffff3e1cffffca1cffff281dffffd023ffffbc8fffff72a1ffff12c2ffff46caffff18cbffffd2d7ffffcedaffff46e4ffff4ce4ffff3ee7ffff5eebffff10edffffdeeeffff80efffff26f0ffff10fbffff82620000047d0000a4800000f8a90000d4aa00000eab00003eab0000c2ac0000b8b10000e6bb00005abc000090bc000070cc00001cda000070da000058db00008cdb0000
+      m_ExpandedIDs: 8259ffffcc59ffffac5cfffff05cffff5a5dffffaa5dffff545effffe25effff3a5fffff6cadffffeaadffff16b5ffffdcc3ffff2ec7ffffb6d4ffff18d9ffffc2dcffffb6e0ffff5ae9ffff64eeffffc0f2ffff10fbffff5ea6000024ae0000aab10000beb10000e8c00000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -638,7 +638,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 24.666666}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -830,9 +830,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1712.1622, y: 411.6113, z: -5.253785}
+    m_Target: {x: 826.2203, y: 292.0821, z: 4.855039}
     speed: 2
-    m_Value: {x: 1712.1622, y: 411.6113, z: -5.253785}
+    m_Value: {x: 826.2203, y: 292.0821, z: 4.855039}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -883,9 +883,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 825.61255
+    m_Target: 600.61676
     speed: 2
-    m_Value: 825.61255
+    m_Value: 600.61676
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1051,9 +1051,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 912
-    width: 2071.6667
-    height: 439.00006
+    y: 899.3334
+    width: 1959
+    height: 451.6667
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1102,14 +1102,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 1
+    - e00: 1.1497508
       e01: 0
       e02: 0
-      e03: -32.333313
+      e03: -302.6106
       e10: 0
-      e11: 1
+      e11: 1.1497508
       e12: 0
-      e13: 170
+      e13: 207.58577
       e20: 0
       e21: 0
       e22: 1
@@ -1215,9 +1215,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 3386ed1c88951ca44b2d8379ce8a2523, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: f10bba94177c3084598bf6a5b4f45ab9, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 3049547807402730461, guid: 3386ed1c88951ca44b2d8379ce8a2523, type: 2}
+  - m_Target: {fileID: 5032636995515154281, guid: f10bba94177c3084598bf6a5b4f45ab9, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}

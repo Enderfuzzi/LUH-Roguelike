@@ -6,8 +6,10 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] public Rigidbody2D rb;
 
-    [SerializeField] private float movementSpeed = 2.0f;
-    [SerializeField] private float attackAnimationSpeed = 1.0f;
+    private float movementSpeed = 2.0f;
+    private float attackAnimationSpeed = 1.0f;
+    private float cooldown = 1.0f;
+    private float movementLock = 0;
 
     [SerializeField] public Animator animator;
 
@@ -51,6 +53,7 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
+        movementLock -= Time.deltaTime;
 
         float horizontalMovement = 0;
         float verticalMovement = 0;
@@ -247,6 +250,11 @@ public class EnemyController : MonoBehaviour
             animator.SetFloat("yDirection", verticalMovement);
             animator.SetFloat("xDirection", horizontalMovement);
         }
+        if (movementLock > 0.0f)
+        {
+            verticalMovement = 0;
+            horizontalMovement = 0;
+        }
 
         animator.SetFloat("ySpeed", verticalMovement);
         animator.SetFloat("xSpeed", horizontalMovement);
@@ -257,6 +265,7 @@ public class EnemyController : MonoBehaviour
     public void setAttackAnimationSpeed(float animationSpeed)
     {
         animator.SetFloat("attackAnimationSpeed", animationSpeed);
+        cooldown = 1 / (3.0f * animationSpeed);
     }
 
     public void setMovementSpeed(float movementSpeed)
@@ -308,19 +317,23 @@ public class EnemyController : MonoBehaviour
         //Debug.DrawRay(transform.position, new Vector3(0, -35.0f, 0), Color.yellow);
         if (attack(Vector2.right))
         {
+            movementLock = cooldown;
             return true;
         }
         if (attack(Vector2.left))
         {
+            movementLock = cooldown;
             return true;    
         }
         
         if (attack(Vector2.up))
         {
+            movementLock = cooldown;
             return true;
         }
         if (attack(Vector2.down))
         {
+            movementLock = cooldown;
             return true;
         }
         return false;

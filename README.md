@@ -97,5 +97,5 @@ For further restribution, other usages or questions feel free to ask: ole.brenne
 - [ ] add more content...
 Bugfixes:
 - [x] fix enemy spawn point with movement
-- [ ] fix that player can shot and walk
-- [ ] fix that enemey  can shot and walk
+- [x] fix that player can shot and walk
+- [x] fix that enemey  can shot and walk
