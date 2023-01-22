@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public static void showMainMenu()
     {
-        Time.timeScale = 1;
+        ShopManager.unpause();
         MenuSound.inMenu = true;
         LvlOneSound.inGame = false;
         SceneManager.LoadScene("MainMenu");
@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
         LvlOneSound.inGame = false;
         SceneManager.LoadScene("Died");
     }
+
 
     public static void exit()
     {

@@ -95,6 +95,7 @@ For further restribution, other usages or questions feel free to ask: ole.brenne
 - [x] implement settings
 - [x] implement sound effects
 - [ ] add more content...
+<br>
 Bugfixes:
 - [x] fix enemy spawn point with movement
 - [x] fix that player can shot and walk
